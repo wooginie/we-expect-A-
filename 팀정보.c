@@ -19,47 +19,114 @@ void select_team(INFO a[]) {
 		printf("%d. %s", i + 1, a[i].team_name);
 	}
 
+	printf("\n");
+	printf("원하는 팀의 번호를 입력하세요: ");
 	scanf_s("%d", &j);
 
 	switch (j) {
 	case 1:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 2:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 3:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 4:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 5:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 6:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 7:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 8:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 9:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 10:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 11:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 12:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	case 13:
-		printf("%s", a[j - 1].team_name);
+		printf("%s \n", a[j - 1].team_name);
+		printf("팀 소개: %s \n", a[j - 1].team_info);
+		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
+		printf("핵심 선수: %s \n", a[j - 1].key_player);
+		printf("응원가: %s \n", a[j - 1].team_song);
+		printf("\n");
 		break;
 	}
 }
