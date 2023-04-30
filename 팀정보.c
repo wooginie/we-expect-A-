@@ -12,6 +12,58 @@ typedef struct teamInformation {
 	char team_song[100];
 }INFO;
 
+void select_team(INFO a[]) {
+	int i, j;
+
+	for (i = 0; i < K_leagueTeam; i++) {
+		printf("%d. %s", i + 1, a[i].team_name);
+	}
+
+	scanf_s("%d", &j);
+
+	switch (j) {
+	case 1:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 2:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 3:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 4:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 5:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 6:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 7:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 8:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 9:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 10:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 11:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 12:
+		printf("%s", a[j - 1].team_name);
+		break;
+	case 13:
+		printf("%s", a[j - 1].team_name);
+		break;
+	}
+}
+
 int main() {
 	int i;
 	char* a;
@@ -52,6 +104,8 @@ int main() {
 		printf("ÀÀ¿ø°¡: %s \n", list_team[i].team_song);
 		printf("\n");
 	}
+
+	select_team(list_team);
 
 	fclose(fp);
 
