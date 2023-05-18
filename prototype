@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+	float vic, game, result;	
+	game = 10;
+	vic = 7;
+
+	result = vic / game;
+
+	printf("%lf", result);
+
+	return 0;
+}
