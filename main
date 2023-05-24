@@ -1,1 +1,10 @@
+#include <stdio.h>
 
+int main() 
+{
+	float vic, game, result;	
+	game = 10;
+	vic = 7;
+  
+  return 0;
+}
