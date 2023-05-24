@@ -6,6 +6,11 @@ int main()
 	char bet[20];
 	char opponent[20];
 	
+	printf("배팅하고 싶은 팀의 이름을 입력하세요: ");
+	scanf("%s", bet);
+	printf("상대 팀을 입력하세요: ");
+	scanf("%s", opponent);
+	
 	float vic, game, result;	
 	game = 10;
 	vic = 7;
