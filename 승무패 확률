@@ -1,6 +1,11 @@
 #include <stdio.h>
 
-int main() {
+int main() 
+{
+// bet:배팅할 팀, opponent: 상대 팀
+	char bet[20];
+	char opponent[20];
+	
 	float vic, game, result;	
 	game = 10;
 	vic = 7;
