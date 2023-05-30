@@ -12,6 +12,15 @@ typedef struct teamInformation {
 	char team_song[100];
 }INFO;
 
+void show_teaminfo(INFO a[], int i) {
+	printf("%s \n", a[i].team_name);
+	printf("íŒ€ ì†Œê°œ: %s \n", a[i].team_info);
+	printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[i].last_ranking);
+	printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[i].key_player);
+	printf("ì‘ì›ê°€: %s \n", a[i].team_song);
+	printf("\n");
+}
+
 void select_team(INFO a[]) {
 	int i, j;
 
@@ -20,112 +29,112 @@ void select_team(INFO a[]) {
 	}
 
 	printf("\n");
-	printf("¿øÇÏ´Â ÆÀÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+	printf("ì›í•˜ëŠ” íŒ€ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 	scanf_s("%d", &j);
 
 	switch (j) {
 	case 1:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 2:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 3:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 4:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 5:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 6:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 7:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 8:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 9:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 10:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 11:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 12:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	case 13:
 		printf("%s \n", a[j - 1].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", a[j - 1].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", a[j - 1].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", a[j - 1].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", a[j - 1].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", a[j - 1].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", a[j - 1].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", a[j - 1].key_player);
+		printf("ì‘ì›ê°€: %s \n", a[j - 1].team_song);
 		printf("\n");
 		break;
 	}
@@ -138,10 +147,10 @@ int main() {
 
 	INFO list_team[K_leagueTeam];
 
-	FILE* fp = fopen("k¸®±×_ÆÀÁ¤º¸.csv", "r");
+	FILE* fp = fopen("kë¦¬ê·¸_íŒ€ì •ë³´.csv", "r");
 
 	if (fp == NULL) {
-		printf("ÆÄÀÏ ÀĞ±â ½ÇÆĞ!");
+		printf("íŒŒì¼ ì½ê¸° ì‹¤íŒ¨!");
 		return -1;
 	}
 
@@ -165,10 +174,10 @@ int main() {
 
 	for (i = 0; i < K_leagueTeam; i++) {
 		printf("%s \n", list_team[i].team_name);
-		printf("ÆÀ ¼Ò°³: %s \n", list_team[i].team_info);
-		printf("Àú¹ø½ÃÁğ ¼øÀ§: %s \n", list_team[i].last_ranking);
-		printf("ÇÙ½É ¼±¼ö: %s \n", list_team[i].key_player);
-		printf("ÀÀ¿ø°¡: %s \n", list_team[i].team_song);
+		printf("íŒ€ ì†Œê°œ: %s \n", list_team[i].team_info);
+		printf("ì €ë²ˆì‹œì¦Œ ìˆœìœ„: %s \n", list_team[i].last_ranking);
+		printf("í•µì‹¬ ì„ ìˆ˜: %s \n", list_team[i].key_player);
+		printf("ì‘ì›ê°€: %s \n", list_team[i].team_song);
 		printf("\n");
 	}
 
