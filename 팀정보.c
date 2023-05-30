@@ -13,7 +13,8 @@ typedef struct teamInformation {
 }INFO;
 
 void show_teaminfo(INFO a[], int i) {
-	printf("%s \n", a[i].team_name);
+	printf("\n");
+	printf("팀 이름: %s \n", a[i].team_name);
 	printf("팀 소개: %s \n", a[i].team_info);
 	printf("저번시즌 순위: %s \n", a[i].last_ranking);
 	printf("핵심 선수: %s \n", a[i].key_player);
@@ -25,7 +26,7 @@ void select_team(INFO a[]) {
 	int i, j;
 
 	for (i = 0; i < K_leagueTeam; i++) {
-		printf("%d. %s", i + 1, a[i].team_name);
+		printf("%d.%s \n", i + 1, a[i].team_name);
 	}
 
 	printf("\n");
