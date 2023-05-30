@@ -34,108 +34,43 @@ void select_team(INFO a[]) {
 
 	switch (j) {
 	case 1:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 2:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 3:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 4:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 5:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 6:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 7:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 8:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 9:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 10:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 11:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 12:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	case 13:
-		printf("%s \n", a[j - 1].team_name);
-		printf("팀 소개: %s \n", a[j - 1].team_info);
-		printf("저번시즌 순위: %s \n", a[j - 1].last_ranking);
-		printf("핵심 선수: %s \n", a[j - 1].key_player);
-		printf("응원가: %s \n", a[j - 1].team_song);
-		printf("\n");
+		show_teaminfo(a, j);
 		break;
 	}
 }
