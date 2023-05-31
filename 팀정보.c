@@ -121,14 +121,7 @@ int main() {
 		}
 	}
 
-	for (i = 0; i < K_leagueTeam; i++) {
-		printf("%s \n", list_team[i].team_name);
-		printf("팀 소개: %s \n", list_team[i].team_info);
-		printf("저번시즌 순위: %s \n", list_team[i].last_ranking);
-		printf("핵심 선수: %s \n", list_team[i].key_player);
-		printf("응원가: %s \n", list_team[i].team_song);
-		printf("\n");
-	}
+	show_allteaminfo(list_team);
 
 	select_team(list_team);
 
