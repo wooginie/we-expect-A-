@@ -9,3 +9,27 @@ void print_talk()
       {" 셋째 다음시즌 순위를 예측해주는 서비스\n"},
       {" 마지막으로 심심풀이 미니게임이 있습니다.\n"}
    };
+while (i <= 5) {
+      printf("\n\n");
+      printf("\x1b[31m                        K-LEAGUE GPT\x1b[0m\n");
+   
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("\n");
+      printf("===========================================================================\n");
+      printf("\n");
+      printf("%s", talk[i]);
+      printf("\n");
+      printf("===========================================================================\n");
+      i++;
+      Sleep(2800);
+      system("cls");
+   }
+}
