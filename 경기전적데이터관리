@@ -9,5 +9,10 @@ typedef struct gameData {
 
 int main(){
 
+	//선언
+	char line[1024];
+	char* tp; //token pointer
+	DATA list_game[opCount];
+
 return 0;
 }
