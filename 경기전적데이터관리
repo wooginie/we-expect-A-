@@ -16,10 +16,10 @@ int main(){
 	DATA list_game[opCount];
 	char line[1024];
 	char* tp; //token pointer
-	int score;	
+	 score;	
 	
 	//구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.
-	FILE* fp = fopen("전북.csv", "r");
+	FILE* fp = fopen("전북.csv", "r"); //file pointer
 	if (fp == NULL) {
 		printf("파일 읽기 실패!");
 		return -1;
@@ -31,13 +31,13 @@ int main(){
 		while (tp != NULL) {
 			strcpy(list_game[i].opName, tp);
 			tp = strtok(NULL, ",");
-			score = atoi(tp);
+			score = atof(tp);
 			list_game[i].vic = score;
 			tp = strtok(NULL, ",");
-			score = atoi(tp);
+			score = atof(tp);
 			list_game[i].tie = score;
 			tp = strtok(NULL, ",");
-			score = atoi(tp);
+			score = atof(tp);
 			list_game[i].lose = score;
 			tp = strtok(NULL, ",");
 		}
