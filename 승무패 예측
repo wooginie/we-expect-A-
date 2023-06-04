@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() 
+{
+// bet:배팅할 팀, opponent: 상대 팀
+	int bet;
+	int opponent;
+	
+	printf("배팅하고 싶은 팀의 번호를 입력하세요: "); //csv 파일 선택
+	scanf("%s", &bet);
+	printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
+	scanf("%s", &opponent);
+	
+	float vic, game, result;	
+	game = 10;
+	vic = 7;
+
+	result = vic / game;
+
+	printf("%lf", result);
+
+	return 0;
+}
