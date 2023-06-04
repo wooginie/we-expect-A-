@@ -40,10 +40,11 @@ void show_teaminfo(INFO* team) {
 	printf("\n");
 }
 
-void show_allteaminfo(INFO** teams, int num_teams) {
-    for (int i = 0; i < num_teams; i++) {
-        show_teaminfo(teams[i]);
-    }
+void show_allteaminfo(INFO** teams) {
+	printf("모든 팀 보기 \n");
+        for (int i = 0; i < K_leagueTeam; i++) {
+            show_teaminfo(teams[i]);
+        }
 }
 
 void select_team(INFO** teams) {
