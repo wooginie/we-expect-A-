@@ -17,8 +17,9 @@ typedef struct teamInformation {
 void show_teaminfo(INFO a[], int i) {
 	printf("\n");
 	printf("팀 이름: %s \n", a[i].team_name);
-	printf("팀 소개: %s \n", a[i].team_info);
+	printf("유니폼: %s \n", team->team_uniform);
 	printf("저번시즌 순위: %s \n", a[i].last_ranking);
+	printf("엠블럼: %s \n", team->team_emblem);
 	printf("공격수: %s \n", team->team_fw);
         printf("미드필더: %s \n", team->team_mf);
 	printf("응원가: %s \n", a[i].team_song);
