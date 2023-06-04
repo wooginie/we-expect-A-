@@ -74,10 +74,7 @@ void select_team(INFO** teams) {
 
 int main() {
 	int i;
-	char* a;
-
-
-	INFO list_team[K_leagueTeam];
+	INFO** list_team;
 
 	FILE* fp = fopen("k리그_팀정보.csv", "r");
 
