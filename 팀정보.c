@@ -23,7 +23,10 @@ void show_teaminfo(INFO* team) {
 	printf("유니폼: %s \n", team->team_uniform);
 	printf("저번시즌 순위: %s \n", team->last_ranking);
 	printf("엠블럼: %s \n", team->team_emblem);
-	printf("공격수: %s \n", team->team_fw);
+	printf("홈 구장: %s \n", team->team_stadium);
+        printf("마스코트: %s \n", team->team_mascot);
+        printf("감독: %s \n", team->team_coach);
+  	printf("공격수: %s \n", team->team_fw);
         printf("미드필더: %s \n", team->team_mf);
 	printf("응원가: %s \n", team->team_song);
 	printf("\n");
