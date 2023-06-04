@@ -19,6 +19,22 @@ int main(){
 		printf("파일 읽기 실패!");
 		return -1;
 	}
+	
+	//구조체에 저장한다.	
+	for (int i = 0; i < opCount; i++) {
+		fgets(line, 1024, fp);
+		tp = strtok(line, ",");
+		while (tp != NULL) {
+			strcpy(list_game[i].opName, tp);
+			tp = strtok(NULL, ",");
+			strcpy(list_game[i].vic, tp);
+			tp = strtok(NULL, ",");
+			strcpy(list_game[i].tie, tp);
+			tp = strtok(NULL, ",");
+			strcpy(list_game[i].lose, tp);
+			tp = strtok(NULL, ",");
+		}
+	}
 
 return 0;
 }
