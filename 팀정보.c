@@ -8,8 +8,8 @@ typedef struct teamInformation {
 	char team_name[100];
 	char team_info[100];
 	char last_ranking[100];
-	char team_fw[500];
-        char team_mf[500];
+	char team_fw[300];
+        char team_mf[300];
 	char team_song[100];
 }INFO;
 
@@ -18,7 +18,8 @@ void show_teaminfo(INFO a[], int i) {
 	printf("팀 이름: %s \n", a[i].team_name);
 	printf("팀 소개: %s \n", a[i].team_info);
 	printf("저번시즌 순위: %s \n", a[i].last_ranking);
-	printf("핵심 선수: %s \n", a[i].key_player);
+	printf("공격수: %s \n", team->team_fw);
+        printf("미드필더: %s \n", team->team_mf);
 	printf("응원가: %s \n", a[i].team_song);
 	printf("\n");
 }
