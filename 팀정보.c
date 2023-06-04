@@ -49,6 +49,19 @@ void show_allteaminfo(INFO** teams, int num_teams) {
 void select_team(INFO** teams, int num_teams) {
 	int n;
 	
+	printf("1.전북현대모터스 \n");
+        printf("2.울산현대 \n");
+        printf("3.대구 FC \n");
+        printf("4.제주 유나이티드 \n");
+        printf("5.수원 FC \n");
+        printf("6.수원삼성블루윙즈 \n");
+        printf("7.FC 서울 \n");
+        printf("8.인천유나이티드 \n");
+        printf("9.포항스틸러스 \n");
+        printf("10.강원 FC \n");
+        printf("11.김천상무 \n");
+        printf("12.광주 FC \n");
+	
 	printf("원하는 팀의 번호를 입력하세요: ");
         scanf("%d", &n);
 	
