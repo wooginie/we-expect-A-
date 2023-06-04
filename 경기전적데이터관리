@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+typedef struct gameData {
+	char opName[32]; //opponent name
+	int vic;
+	int tie;
+	int lose;
+}DATA; //배팅 팀은 아직 없음. case에 들어갈 듯?
+
 int main(){
 
 return 0;
