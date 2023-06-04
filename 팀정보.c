@@ -8,7 +8,8 @@ typedef struct teamInformation {
 	char team_name[100];
 	char team_info[100];
 	char last_ranking[100];
-	char key_player[100];
+	char team_fw[500];
+        char team_mf[500];
 	char team_song[100];
 }INFO;
 
