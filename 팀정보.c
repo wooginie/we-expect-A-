@@ -46,58 +46,16 @@ void show_allteaminfo(INFO** teams, int num_teams) {
     }
 }
 
-void select_team(INFO a[]) {
-	int i, j;
-
-	for (i = 0; i < K_leagueTeam; i++) {
-		printf("%d.%s \n", i + 1, a[i].team_name);
-	}
-
-	printf("\n");
+void select_team(INFO** teams, int num_teams) {
+	int n;
+	
 	printf("원하는 팀의 번호를 입력하세요: ");
-	scanf_s("%d", &j);
+        scanf("%d", &n);
+	
+	if (n >= 1 && choice <= num_teams) {
+        show_teaminfo(teams[n - 1]);
+        }
 
-	switch (j) {
-	case 1:
-		show_teaminfo(a, j - 1);
-		break;
-	case 2:
-		show_teaminfo(a, j - 1);
-		break;
-	case 3:
-		show_teaminfo(a, j - 1);
-		break;
-	case 4:
-		show_teaminfo(a, j - 1);
-		break;
-	case 5:
-		show_teaminfo(a, j - 1);
-		break;
-	case 6:
-		show_teaminfo(a, j - 1);
-		break;
-	case 7:
-		show_teaminfo(a, j - 1);
-		break;
-	case 8:
-		show_teaminfo(a, j - 1);
-		break;
-	case 9:
-		show_teaminfo(a, j - 1);
-		break;
-	case 10:
-		show_teaminfo(a, j - 1);
-		break;
-	case 11:
-		show_teaminfo(a, j - 1);
-		break;
-	case 12:
-		show_teaminfo(a, j - 1);
-		break;
-	case 13:
-		show_teaminfo(a, j - 1);
-		break;
-	}
 }
 
 int main() {
