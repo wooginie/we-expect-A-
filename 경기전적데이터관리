@@ -8,11 +8,17 @@ typedef struct gameData {
 }DATA; //배팅 팀은 아직 없음. case에 들어갈 듯?
 
 int main(){
-
 	//선언
 	char line[1024];
 	char* tp; //token pointer
 	DATA list_game[opCount];
+	
+	//경기 전적 데이터 파일(.csv)을 불러오고, 구조체에 저장한다.
+	FILE* fp = fopen("전북.csv", "r");
+	if (fp == NULL) {
+		printf("파일 읽기 실패!");
+		return -1;
+	}
 
 return 0;
 }
