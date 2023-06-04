@@ -11,13 +11,16 @@ int main()
 	printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
 	scanf("%s", &opponent);
 	
-	float vic, game, result;	
-	game = 10;
-	vic = 7;
+	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
+	double vic = 7;
+	double tie = 5;
+	double lose = 10;
+	double games = vic + tie + lose;
 
-	result = vic / game;
-
-	printf("%lf", result);
+	// 승무패 확률을 출력한다.
+	printf("%.2lf", vic / games * 100);
+	printf("%.2lf", tie / games * 100);
+	printf("%.2lf", lose / games * 100);
 
 	return 0;
 }
