@@ -82,6 +82,12 @@ int main() {
 		printf("파일 읽기 실패!");
 		return -1;
 	}
+	
+	list_team = (INFO**)malloc(K_leagueTeam * sizeof(INFO*));
+        if (list_team == NULL) {
+            printf("메모리 할당 실패!");
+            return -1;
+        }
 
 	char line[1024];
 	for (i = 0; i < K_leagueTeam; i++) {
