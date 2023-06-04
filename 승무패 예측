@@ -1,11 +1,19 @@
 #include <stdio.h>
 
-int main() 
+void prediction();
+
+int main()
 {
-// 선언> bet:배팅할 팀, opponent: 상대 팀
+	prediction();
+
+	return 0;
+}
+
+void prediction() {
+	// 선언> bet:배팅할 팀, opponent: 상대 팀
 	int bet;
 	int opponent;
-	
+
 	// 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
 	printf("1. 강원\n");
 	printf("2. 광주\n");
@@ -19,12 +27,12 @@ int main()
 	printf("10. 인천\n");
 	printf("11. 전북\n");
 	printf("12. 제주\n");
-	printf("13. 포항\n");	
+	printf("13. 포항\n");
 	printf("배팅하고 싶은 팀의 번호를 입력하세요: "); //csv 파일 선택
 	scanf("%s", &bet);
 	printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
 	scanf("%s", &opponent);
-	
+
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
 	double vic = 7;
 	double tie = 5;
@@ -35,6 +43,4 @@ int main()
 	printf("%.2lf", vic / games * 100);
 	printf("%.2lf", tie / games * 100);
 	printf("%.2lf", lose / games * 100);
-
-	return 0;
 }
