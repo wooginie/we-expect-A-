@@ -11,19 +11,26 @@ typedef struct gameData {
 	int lose;
 }DATA; //배팅 팀은 아직 없음. case에 들어갈 듯?
 
-int main(){
+void matchData();
+
+int main() {
+	matchData();
+
+	return 0;
+}
+
+void matchData() {
 	//선언
 	DATA list_game[opCount];
 	char line[1024];
 	char* tp; //token pointer
-	 score;	
-	
+	double score;
+
 	//구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.
 	FILE* fp = fopen("전북.csv", "r"); //file pointer
 	if (fp == NULL) {
-		printf("파일 읽기 실패!");
-		return -1;
-	}	
+		printf("파일 읽기 실패!");		
+	}
 	//파일을 쪼개고, 구조체에 저장한다.	
 	for (int i = 0; i < opCount; i++) {
 		fgets(line, 1024, fp);
@@ -42,7 +49,5 @@ int main(){
 			tp = strtok(NULL, ",");
 		}
 	}
-	fclose(fp);
-
-return 0;
+	fclose(fp);	
 }
