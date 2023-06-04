@@ -2,10 +2,24 @@
 
 int main() 
 {
-// bet:배팅할 팀, opponent: 상대 팀
+// 선언> bet:배팅할 팀, opponent: 상대 팀
 	int bet;
 	int opponent;
 	
+	// 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
+	printf("1. 강원\n");
+	printf("2. 광주\n");
+	printf("3. 김천상무\n");
+	printf("4. 대구\n");
+	printf("5. 서울\n");
+	printf("6. 성남\n");
+	printf("7. 수원\n");
+	printf("8. 수원fc\n");
+	printf("9. 울산\n");
+	printf("10. 인천\n");
+	printf("11. 전북\n");
+	printf("12. 제주\n");
+	printf("13. 포항\n");	
 	printf("배팅하고 싶은 팀의 번호를 입력하세요: "); //csv 파일 선택
 	scanf("%s", &bet);
 	printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
