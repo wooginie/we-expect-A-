@@ -6,12 +6,12 @@
 
 typedef struct teamInformation {
 	char team_name[100];
-	char team_uniform[10];
-	char team_emblem[50];
+	char team_uniform[100];
+	char team_emblem[1000];
 	char last_ranking[100];
 	char team_fw[300];
         char team_mf[300];
-	char team_song[100];
+	char team_song[1000];
 }INFO;
 
 void show_teaminfo(INFO* team) {
