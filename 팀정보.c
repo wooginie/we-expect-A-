@@ -53,12 +53,19 @@ void select_team(INFO** teams) {
              printf("%d.%s \n", i + 1, teams[i]->team_name);
         }
 	
-	printf("원하는 팀의 번호를 입력하세요: ");
+	while (1) {
+        printf("원하는 팀의 번호를 입력하세요: ");
         scanf("%d", &n);
-	
-	if (n >= 1 && n <= k_leagueTeam) {
-        show_teaminfo(teams[n - 1]);
+
+        if (n >= 1 && n <= K_leagueTeam) {
+            show_teaminfo(teams[n - 1]);
+            break;
         }
+        else {
+            printf("번호를 다시 입력하세요(1번~%d번) \n",K_leagueTeam);
+        }
+
+    }
 
 }
 
