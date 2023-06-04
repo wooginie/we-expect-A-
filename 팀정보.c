@@ -46,7 +46,7 @@ void show_allteaminfo(INFO** teams, int num_teams) {
     }
 }
 
-void select_team(INFO** teams, int num_teams) {
+void select_team(INFO** teams) {
 	int n;
 	
 	printf("1.전북현대모터스 \n");
@@ -61,11 +61,12 @@ void select_team(INFO** teams, int num_teams) {
         printf("10.강원 FC \n");
         printf("11.김천상무 \n");
         printf("12.광주 FC \n");
+	printf("13.대전 하나 시티즌 \n");
 	
 	printf("원하는 팀의 번호를 입력하세요: ");
         scanf("%d", &n);
 	
-	if (n >= 1 && choice <= num_teams) {
+	if (n >= 1 && choice <= k_leagueTeam) {
         show_teaminfo(teams[n - 1]);
         }
 
