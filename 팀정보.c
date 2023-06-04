@@ -6,7 +6,8 @@
 
 typedef struct teamInformation {
 	char team_name[100];
-	char team_info[100];
+	char team_uniform[10];
+	char team_emblem[50];
 	char last_ranking[100];
 	char team_fw[300];
         char team_mf[300];
