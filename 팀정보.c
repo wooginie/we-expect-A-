@@ -112,6 +112,11 @@ int main() {
 	select_team(list_team);
 
 	fclose(fp);
+	
+	for (i = 0; i < K_leagueTeam; i++) {
+             free(list_team[i]);
+        }
+        free(list_team);
 
 	return 0;
 }
