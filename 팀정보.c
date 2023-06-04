@@ -13,11 +13,11 @@ typedef struct teamInformation {
         char team_mascot[100];
 	char team_coach[100];
 	char team_captain[100];
-	char team_history[100];
+	char team_history[1000];
 	char team_fw[300];
         char team_mf[300];
-	char team_df[100];
-	char team_gk[100];
+	char team_df[300];
+	char team_gk[300];
 	char team_song[1000];
 }INFO;
 
