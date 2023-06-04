@@ -30,8 +30,12 @@ void show_teaminfo(INFO* team) {
 	printf("홈 구장: %s \n", team->team_stadium);
         printf("마스코트: %s \n", team->team_mascot);
         printf("감독: %s \n", team->team_coach);
+	printf("주장: %s \n", team->team_captain);
+        printf("기록: %s \n", team->team_history);
   	printf("공격수: %s \n", team->team_fw);
         printf("미드필더: %s \n", team->team_mf);
+	printf("수비수: %s \n", team->team_df);
+        printf("골키퍼: %s \n", team->team_gk);
 	printf("응원가: %s \n", team->team_song);
 	printf("\n");
 }
