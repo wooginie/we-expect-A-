@@ -37,8 +37,11 @@ void play_quiz(Quiz a[]) {
   
     for (i = 0; i < quizNum; i++) {
         randomIndex = arr[i];
+        printf("==================================================================\n");
         printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
-        printf("%s \n", a[randomIndex].choice);
+        printf("\n");
+        printf("     %s \n", a[randomIndex].choice);
+        printf("==================================================================\n");
         printf("답: ");
         scanf("%d", &n);
         printf("\n");
