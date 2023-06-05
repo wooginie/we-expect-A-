@@ -49,6 +49,10 @@ void prediction(DATA list_game[opCount]) {
 		matchData("김천상무.csv");
 		break;
 	}
+	case 3:
+		matchData("광주.csv");
+		break;
+	}
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
 	double vic = 7;
