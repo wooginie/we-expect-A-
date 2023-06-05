@@ -38,6 +38,12 @@ void play_quiz(Quiz a[]) {
             printf("정답입니다! \n");
             printf("\n");
         }
+        
+        else {
+            printf("오답입니다! \n");
+            printf("%s \n", a[randomIndex].explanation);
+            printf("\n");
+        }
     }
 }
 
