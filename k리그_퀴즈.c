@@ -4,6 +4,7 @@
 #include <time.h>
 
 #define totalQuiz 10
+#define quizNum 5
 
 typedef struct {
     char question[300];
@@ -15,11 +16,11 @@ typedef struct {
 void play_quiz(Quiz a[]) {
     int i, j, n;
     int randomIndex;
-    int arr[5];
+    int arr[quizNum];
     int score = 0;
     int num = 0;
     
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < quizNum; i++) {
         arr[i] = rand() % totalQuiz;
         for (j = 0; j < i; j++) {
             if (arr[i] == arr[j]) {
@@ -29,7 +30,7 @@ void play_quiz(Quiz a[]) {
         }
     }
   
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < quizNum; i++) {
         randomIndex = arr[i];
         printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
         printf("%s \n", a[randomIndex].choice);
@@ -51,7 +52,7 @@ void play_quiz(Quiz a[]) {
     }
     
     printf("당신의 점수는 %d점입니다! \n", score);
-    printf("5문제 중 %d문제를 맞히고 %d문제를 틀렸습니다. \n", num, 5 - num);
+    printf("%d문제 중 %d문제를 맞히고 %d문제를 틀렸습니다. \n", quizNum, num, quizNum - num);
 }
 
 int main() {
@@ -80,6 +81,8 @@ int main() {
             a_quiz = strtok(NULL, ",");
             b_quiz = atoi(a_quiz);
             list_quiz[i_quiz].answer = b_quiz;
+            a_quiz = strtok(NULL, ",");
+            strcpy(list_quiz[i_quiz].explanation, a_quiz);
             a_quiz = strtok(NULL, ",");
         }
     }
