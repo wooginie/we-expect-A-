@@ -7,6 +7,7 @@
 
 typedef struct {
     char question[1000];
+    char choice[1000];
     int answer;
 } Quiz;
 
@@ -16,7 +17,8 @@ void play_quiz(Quiz a[]) {
   
     for (i = 0; i < 5; i++) {
         randomIndex = rand() % totalQuiz;
-        printf("%d. %s \n", i + 1, a[randomIndex].question);
+        printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
+        printf("%s \n", a[randomIndex].choice);
         scanf("%d", &j);
         if (j == a[randomIndex].answer) {
             printf("정답입니다! \n");
