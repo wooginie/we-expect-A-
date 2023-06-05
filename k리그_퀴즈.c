@@ -14,6 +14,16 @@ typedef struct {
 void play_quiz(Quiz a[]) {
     int i, j;
     int randomIndex;
+    
+    for (i = 0; i < 5; i++) {
+        arr[i] = rand() % totalQuiz;
+        for (j = 0; j < i; j++) {
+            if (arr[i] == arr[j]) {
+                i--;
+                break;
+            }
+        }
+    }
   
     for (i = 0; i < 5; i++) {
         randomIndex = rand() % totalQuiz;
