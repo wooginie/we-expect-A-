@@ -12,11 +12,13 @@ typedef struct {
 
 void play_quiz(Quiz a[]) {
     int i, j;
+    int randomIndex;
   
-    for (i = 0; i < totalQuiz; i++) {
-        printf("%d. %s \n", i + 1, a[i].question);
+    for (i = 0; i < 5; i++) {
+        randomIndex = rand() % totalQuiz;
+        printf("%d. %s \n", i + 1, a[randomIndex].question);
         scanf("%d", &j);
-        if (j == a[i].answer) {
+        if (j == a[randomIndex].answer) {
             printf("정답입니다! \n");
         }
     }
@@ -28,7 +30,7 @@ int main() {
     char* a_quiz;
     int i_quiz, b_quiz;
 
-    //srand(time(NULL));
+    srand(time(NULL));
 
     p_quiz = fopen("k리그_퀴즈.csv", "r");
 
