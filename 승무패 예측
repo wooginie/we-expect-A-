@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+typedef struct gameData {
+	char opName[32]; //opponent name
+	int vic;
+	int tie;
+	int lose;
+} DATA;
+
 void prediction(DATA list_game[opCount]);
 
 int main()
