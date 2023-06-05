@@ -52,7 +52,10 @@ void prediction(DATA list_game[opCount]) {
 		break;
 	case 4:
 		matchData("대구.csv");
-		break;		
+		break;
+	case 5:
+		matchData("서울.csv");
+		break;
 	}
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
