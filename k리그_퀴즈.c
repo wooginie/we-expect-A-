@@ -21,3 +21,25 @@ void play_quiz(Quiz a[]) {
         }
     }
 }
+
+int main() {
+    Quiz list_quiz[totalQuiz];
+    FILE* p_quiz;
+    char* a_quiz;
+    int i_quiz, b_quiz;
+
+    //srand(time(NULL));
+
+    p_quiz = fopen("k리그_퀴즈.csv", "r");
+
+    if (p_quiz == NULL) {
+        printf("파일 읽기 실패!");
+        return -1;
+    }
+
+    play_quiz(list_quiz);
+
+    fclose(p_quiz);
+
+    return 0;
+}
