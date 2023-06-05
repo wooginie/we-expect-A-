@@ -44,14 +44,15 @@ void prediction(DATA list_game[opCount]) {
 	case 1:
 		matchData("강원.csv");
 		break;
-	}
 	case 2:
 		matchData("김천상무.csv");
 		break;
-	}
 	case 3:
 		matchData("광주.csv");
 		break;
+	case 4:
+		matchData("대구.csv");
+		break;		
 	}
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
