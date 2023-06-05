@@ -12,8 +12,9 @@ typedef struct {
 } Quiz;
 
 void play_quiz(Quiz a[]) {
-    int i, j;
+    int i, j, n;
     int randomIndex;
+    int arr[5];
     
     for (i = 0; i < 5; i++) {
         arr[i] = rand() % totalQuiz;
@@ -30,9 +31,9 @@ void play_quiz(Quiz a[]) {
         printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
         printf("%s \n", a[randomIndex].choice);
         printf("답: ");
-        scanf("%d", &j);
+        scanf("%d", &n);
         printf("\n");
-        if (j == a[randomIndex].answer) {
+        if (n == a[randomIndex].answer) {
             printf("정답입니다! \n");
             printf("\n");
         }
