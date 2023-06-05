@@ -44,18 +44,25 @@ void play_quiz(Quiz a[]) {
         printf("==================================================================\n");
         printf("답: ");
         scanf("%d", &n);
-        printf("\n");
-        if (n == a[randomIndex].answer) {
-            printf("정답입니다! \n");
-            printf("\n");
-            score += 20;
-            num++;
-        }
-        
-        else {
-            printf("오답입니다! \n");
-            printf("%s \n", a[randomIndex].explanation);
-            printf("\n");
+        while(1){
+            if (n == a[randomIndex].answer) {
+                printf("정답입니다! \n");
+                score += 20;
+                num++; 
+                break;
+            }
+            else if (n != a[randomIndex].answer && n < 5 && n > 0) {
+                printf("오답입니다! \n");
+                printf("\n");
+                printf("%s \n", a[randomIndex].explanation);
+                break;
+            }
+            else if (n == 0 || n > 4) {
+                printf("\n");
+                printf("숫자를 제대로 입력해주세요! \n");
+                printf("답: ");
+                scanf("%d", &n);
+            }
         }
     }
     printf("==================================================================\n");
