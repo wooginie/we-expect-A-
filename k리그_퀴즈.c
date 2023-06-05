@@ -46,12 +46,16 @@ void play_quiz(Quiz a[]) {
         scanf("%d", &n);
         while(1){
             if (n == a[randomIndex].answer) {
+                Sleep(1000);
+                printf("==================================================================\n");
                 printf("정답입니다! \n");
                 score += 20;
                 num++; 
                 break;
             }
             else if (n != a[randomIndex].answer && n < 5 && n > 0) {
+                Sleep(1000);
+                printf("==================================================================\n");
                 printf("오답입니다! \n");
                 printf("\n");
                 printf("%s \n", a[randomIndex].explanation);
@@ -64,6 +68,8 @@ void play_quiz(Quiz a[]) {
                 scanf("%d", &n);
             }
         }
+        Sleep(3000);
+        system("cls");
     }
     printf("==================================================================\n");
     printf("\n");
