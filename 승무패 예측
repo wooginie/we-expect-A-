@@ -65,6 +65,9 @@ void prediction(DATA list_game[opCount]) {
 	case 8:
 		matchData("수원fc.csv");
 		break;
+	case 9:
+		matchData(".csv");
+		break;
 	}
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
