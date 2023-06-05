@@ -36,6 +36,19 @@ int main() {
         printf("파일 읽기 실패!");
         return -1;
     }
+    
+    char line[1024];
+    for (i_quiz = 0; i_quiz < totalQuiz; i_quiz++) {
+        fgets(line, 1024, p_quiz);
+        a_quiz = strtok(line, ",");
+        while (a_quiz != NULL) {
+            strcpy(list_quiz[i_quiz].question, a_quiz);
+            a_quiz = strtok(NULL, ",");
+            b_quiz = atoi(a_quiz);
+            list_quiz[i_quiz].answer = b_quiz;
+            a_quiz = strtok(NULL, ",");
+        }
+    }
 
     play_quiz(list_quiz);
 
