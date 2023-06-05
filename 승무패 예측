@@ -41,8 +41,9 @@ void prediction(DATA list_game[opCount]) {
 	
 	//switch case 문으로 배팅하고 싶은 팀의 경기 전적 데이터 파일(.csv) 선택
 	switch (bet) {
-	case 0:
-		matchData("전북.csv");		
+	case 1:
+		matchData("강원.csv");
+		break;
 	}
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
