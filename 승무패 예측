@@ -72,7 +72,10 @@ void prediction(DATA list_game[opCount]) {
 		matchData("인천.csv");
 		break;
 	case 11:
-		matchData(".csv");
+		matchData("전북.csv");
+		break;
+	case 12:
+		matchData("제주.csv");
 		break;
 	}
 
