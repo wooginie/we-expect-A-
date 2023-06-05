@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <Windows.h>
 
 #define totalQuiz 10
 #define quizNum 5
@@ -29,6 +30,10 @@ void play_quiz(Quiz a[]) {
             }
         }
     }
+    printf("==================================================================\n");
+    printf("잠시후 문제가 시작됩니다!");
+    Sleep(2000);
+    system("cls");
   
     for (i = 0; i < quizNum; i++) {
         randomIndex = arr[i];
