@@ -19,9 +19,11 @@ void play_quiz(Quiz a[]) {
         randomIndex = rand() % totalQuiz;
         printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
         printf("%s \n", a[randomIndex].choice);
+        printf("답: ");
         scanf("%d", &j);
         if (j == a[randomIndex].answer) {
             printf("정답입니다! \n");
+            printf("\n");
         }
     }
 }
@@ -47,6 +49,8 @@ int main() {
         a_quiz = strtok(line, ",");
         while (a_quiz != NULL) {
             strcpy(list_quiz[i_quiz].question, a_quiz);
+            a_quiz = strtok(NULL, ",");
+            strcpy(list_quiz[i_quiz].choice, a_quiz);
             a_quiz = strtok(NULL, ",");
             b_quiz = atoi(a_quiz);
             list_quiz[i_quiz].answer = b_quiz;
