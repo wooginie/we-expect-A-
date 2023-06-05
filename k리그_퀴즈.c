@@ -16,6 +16,7 @@ void play_quiz(Quiz a[]) {
     int i, j, n;
     int randomIndex;
     int arr[5];
+    int score = 0;
     
     for (i = 0; i < 5; i++) {
         arr[i] = rand() % totalQuiz;
@@ -37,6 +38,7 @@ void play_quiz(Quiz a[]) {
         if (n == a[randomIndex].answer) {
             printf("정답입니다! \n");
             printf("\n");
+            score += 20;
         }
         
         else {
@@ -45,6 +47,8 @@ void play_quiz(Quiz a[]) {
             printf("\n");
         }
     }
+    
+    printf("당신의 점수는 %d점입니다! \n", score);
 }
 
 int main() {
