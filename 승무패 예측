@@ -77,6 +77,9 @@ void prediction(DATA list_game[opCount]) {
 	case 12:
 		matchData("제주.csv");
 		break;
+	case 13:
+		matchData(".csv");
+		break;
 	}
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
