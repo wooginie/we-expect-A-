@@ -26,11 +26,12 @@ void play_quiz(Quiz a[]) {
     }
   
     for (i = 0; i < 5; i++) {
-        randomIndex = rand() % totalQuiz;
+        randomIndex = arr[i];
         printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
         printf("%s \n", a[randomIndex].choice);
         printf("답: ");
         scanf("%d", &j);
+        printf("\n");
         if (j == a[randomIndex].answer) {
             printf("정답입니다! \n");
             printf("\n");
