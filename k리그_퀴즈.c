@@ -17,6 +17,7 @@ void play_quiz(Quiz a[]) {
     int randomIndex;
     int arr[5];
     int score = 0;
+    int num = 0;
     
     for (i = 0; i < 5; i++) {
         arr[i] = rand() % totalQuiz;
@@ -39,6 +40,7 @@ void play_quiz(Quiz a[]) {
             printf("정답입니다! \n");
             printf("\n");
             score += 20;
+            num++;
         }
         
         else {
@@ -49,6 +51,7 @@ void play_quiz(Quiz a[]) {
     }
     
     printf("당신의 점수는 %d점입니다! \n", score);
+    printf("5문제 중 %d문제를 맞히고 %d문제를 틀렸습니다. \n", num, 5 - num);
 }
 
 int main() {
