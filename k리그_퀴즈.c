@@ -6,9 +6,10 @@
 #define totalQuiz 10
 
 typedef struct {
-    char question[1000];
-    char choice[1000];
+    char question[300];
+    char choice[300];
     int answer;
+    char explanation[500];
 } Quiz;
 
 void play_quiz(Quiz a[]) {
