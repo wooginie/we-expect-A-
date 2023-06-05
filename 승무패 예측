@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-void prediction();
+void prediction(DATA list_game[opCount]);
 
 int main()
 {
-	prediction();
+	prediction(DATA list_game[opCount]);
 
 	return 0;
 }
 
-void prediction() {
+void prediction(DATA list_game[opCount]) {
 	// 선언> bet:배팅할 팀, opponent: 상대 팀
 	int bet;
 	int opponent;
