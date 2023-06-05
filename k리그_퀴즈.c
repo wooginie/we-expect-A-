@@ -58,9 +58,13 @@ void play_quiz(Quiz a[]) {
             printf("\n");
         }
     }
-    
+    printf("==================================================================\n");
+    printf("\n");
     printf("당신의 점수는 %d점입니다! \n", score);
+    printf("\n");
     printf("%d문제 중 %d문제를 맞히고 %d문제를 틀렸습니다. \n", quizNum, num, quizNum - num);
+    printf("\n");
+    printf("==================================================================\n");
 }
 
 int main() {
