@@ -93,4 +93,8 @@ char key;      // case 분기를 위한 변수
       switch (key) {
       case 13:      // Enter키 == 13      
          run(x, y);      // x, y좌표의 위치에 따라 동작이 바뀜.
+         
+            case 72:      // ↑ == 72 
+         move(0, -3);
+         break;
 
