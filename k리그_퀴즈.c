@@ -81,7 +81,7 @@ void play_quiz(Quiz a[]) {
 }
 
 int main() {
-    Quiz list_quiz[totalQuiz];
+    Quiz* list_quiz;
     FILE* p_quiz;
     char* a_quiz;
     int i_quiz, b_quiz;
@@ -96,6 +96,8 @@ int main() {
     }
     
     char line[1024];
+    list_quiz = (Quiz*)malloc(totalQuiz * sizeof(Quiz));
+    
     for (i_quiz = 0; i_quiz < totalQuiz; i_quiz++) {
         fgets(line, 1024, p_quiz);
         a_quiz = strtok(line, ",");
@@ -115,6 +117,8 @@ int main() {
     play_quiz(list_quiz);
 
     fclose(p_quiz);
+    
+    free(list_quiz);
 
     return 0;
 }
