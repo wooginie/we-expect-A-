@@ -1,4 +1,7 @@
-void Cursor(bool flag, int size)
+int x, y;    
+void Cursor(bool flag, int size);
+void menu_display();
+void move(int m, int n);
 {
    CONSOLE_CURSOR_INFO cursorInfo;
    cursorInfo.dwSize = size;
