@@ -12,17 +12,16 @@ void print_talk()
 while (i <= 5) {
       printf("\n\n");
       printf("\x1b[31m                        K-LEAGUE GPT\x1b[0m\n");
-   
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
-      printf("\n");
+      printf("        $$$$$$$ \n");
+	   printf("       $$ $$$$$$\n");
+   	printf("       $$$$$$$$$\n");
+	   printf("$      $$$      \n");
+   	printf("$$     $$$$$$$  \n");
+   	printf("$$$   $$$$$     \n");
+   	printf(" $$  $$$$$$$$$$ \n");
+   	printf(" $$$$$$$$$$$    \n");
+	   printf("  $$$$$$$$$$    \n");
+   	printf("    $$$  $$$    \n");
       printf("===========================================================================\n");
       printf("\n");
       printf("%s", talk[i]);
