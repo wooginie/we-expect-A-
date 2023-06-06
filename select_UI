@@ -106,3 +106,14 @@ case 77:        // → == 77
  case 80:      // ↓ == 80
          move(0, 3);
          break;
+           case 27:      // ESC키 == 27
+         gotoxy(5, 20);
+         exit(0);   // 정상 종료
+         break;
+      default:
+         break;
+      }
+   }
+
+   return 0;
+}
