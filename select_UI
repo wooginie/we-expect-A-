@@ -29,3 +29,8 @@ void move(int m, int n)
    gotoxy(x, y);
    printf("  ");      // 전에 있던 ▶는 공백으로 덮어쓴다.
    gotoxy(x = x + m, y = y + n);
+// 커서가 지정할 좌표 밖으로 나가지 않도록
+   if (y > 16) y = 16;
+   if (y < 16) y = 16;
+   if (y == 16 && x > 63) x = 2;
+   if (y == 16 && x < 2) x = 63;
