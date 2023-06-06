@@ -5,3 +5,9 @@ void Cursor(bool flag, int size)
    cursorInfo.bVisible = flag;
    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
+// 메뉴 표시
+void menu_display()
+{
+   system("cls");      // 화면 청소
+   gotoxy(5, 2);    puts("K리그 Gpt");
+   gotoxy(5, 5);    puts("프로그램 사용법 ☞   이동: 방향키");
