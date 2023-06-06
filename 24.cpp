@@ -13,16 +13,13 @@ typedef struct teamInformation {
 int main()
 {
    int i;
-   char* x;
-
-   INFO list_team[K_Teams];
-
-   FILE* fp = fopen("file name ", "r");
-
-    if(fp==NULL){
-        printf("failed");
-        return -1;
-    }
+	INFO** list_expect;
+	FILE* fp = fopen("file name.csv", "r");
+	if (fp == NULL) {
+		printf("failed!");
+		return -1;
+	}
+  
     char line[1024];
       for (i = 0; i < K_Teams; i++) {
          fgets(line, 1024, fp);
