@@ -1,25 +1,3 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
-#define K_leagueTeam 13
-
-typedef struct teamInformation {
-	char team_name[100];
-	char team_uniform[100];
-	char last_ranking[100];
-	char team_emblem[1000];
-	char team_stadium[100];
-        char team_mascot[100];
-	char team_coach[100];
-	char team_captain[100];
-	char team_history[1000];
-	char team_fw[300];
-        char team_mf[300];
-	char team_df[300];
-	char team_gk[300];
-	char team_song[1000];
-}INFO;
 
 #include<stdio.h>
 #include<stdlib.h>
