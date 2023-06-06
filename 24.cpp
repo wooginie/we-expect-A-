@@ -34,7 +34,16 @@ void select_team(INFO** teams) {
 	while (1) {
         printf("팀 번호 입력: ");
         scanf("%d", &b);
+ 	
+		if (b >= 1 && b <= K_Team) {
+            bring_teaminformation(teams[b - 1]);
+            break;
+        }
+        else {
+            printf("팀 번호 재입력: \n",K_Team);
+        }
 
+    }
      
 
 	
