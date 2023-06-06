@@ -11,3 +11,8 @@ void menu_display()
    system("cls");      // 화면 청소
    gotoxy(5, 2);    puts("K리그 Gpt");
    gotoxy(5, 5);    puts("프로그램 사용법 ☞   이동: 방향키");
+   gotoxy(5, 7);    puts("         선택: Enter");
+   gotoxy(5, 9);    puts("         종료: Esc");
+
+   gotoxy(5, 16);   puts("1. 승무패   예측");
+   gotoxy(25, 16);   puts("2. 팀정보   보기");
