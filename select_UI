@@ -103,3 +103,6 @@ char key;      // case 분기를 위한 변수
 case 77:        // → == 77
          move(20, 0);
          break;
+ case 80:      // ↓ == 80
+         move(0, 3);
+         break;
