@@ -1,3 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+#define K_leagueTeam 13
+
+typedef struct teamInformation {
+	char team_name[100];
+	char team_uniform[100];
+	char last_ranking[100];
+	char team_emblem[1000];
+	char team_stadium[100];
+        char team_mascot[100];
+	char team_coach[100];
+	char team_captain[100];
+	char team_history[1000];
+	char team_fw[300];
+        char team_mf[300];
+	char team_df[300];
+	char team_gk[300];
+	char team_song[1000];
+}INFO;
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -24,6 +46,14 @@ void bring_allteams(INFO** team) {
             bring_information(team[i]);
         }
 }
+
+void select_team(INFO** teams) {
+	int b, a;
+	
+	for (i = 0; a < K_Team; a++) {
+             printf("%d.%s \n", a + 1, teams[a]->name);
+        }
+	
 int main()
 {
    int i;
@@ -36,10 +66,10 @@ int main()
 	
   
     char line[1024];
-      for (i = 0; i < K_Teams; i++) {
+      for (a = 0; a < K_Teams; a++) {
          fgets(line, 1024, fp);
          x = strtok(line, ",");
-         while (a != NULL) {
+         while (b != NULL) {
             strcpy(list_team[i].name_of_team, x);
             x = strtok(NULL, ",");
             strcpy(list_team[i].team_24season_ranking, x);
@@ -55,8 +85,8 @@ int main()
 
 	fclose(fp);
 	
-	for (i = 0; i < K_Teams; i++) {
-             free(list_expect[i]);
+	for (a = 0; a < K_Teams; a++) {
+             free(list_expect[a]);
         }
         free(list_expect);
 
