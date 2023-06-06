@@ -88,3 +88,9 @@ char key;      // case 분기를 위한 변수
 
    Cursor(false, 1);   // 콘솔 커서 숨기기
    menu_display();      // 메뉴 화면 출력
+    while (1) {
+      key = _getch();      // 문자 즉시 저장
+      switch (key) {
+      case 13:      // Enter키 == 13      
+         run(x, y);      // x, y좌표의 위치에 따라 동작이 바뀜.
+
