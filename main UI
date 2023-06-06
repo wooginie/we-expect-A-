@@ -7,12 +7,12 @@ void print_main() {
    printf("\x1b[31m                                   ===\x1b[0m\n");
    printf("\x1b[31m                             =K=L=E=A=G=U=E=\x1b[0m\n");
    printf("\x1b[31m                          =====================\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = |   | = = =\x1b[0m\n");
-   printf("\x1b[31m                        =========================\x1b[0m\n");
+   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
+   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
+   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
+   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
+   printf("\x1b[31m                          = = = = = | | = = = =\x1b[0m\n");
+   printf("\x1b[31m                         =======================\x1b[0m\n");
    printf("===========================================================================\n");
    printf("\n");
    system("pause");
