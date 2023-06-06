@@ -23,3 +23,9 @@ void menu_display()
    printf("▶");
 
 }
+// 키보드 입력에 따른 커서 이동
+void move(int m, int n)
+{
+   gotoxy(x, y);
+   printf("  ");      // 전에 있던 ▶는 공백으로 덮어쓴다.
+   gotoxy(x = x + m, y = y + n);
