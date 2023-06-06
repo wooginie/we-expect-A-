@@ -31,6 +31,12 @@ void select_team(INFO** teams) {
 	for (i = 0; a < K_Team; a++) {
              printf("%d.%s \n", a + 1, teams[a]->name);
         }
+	while (1) {
+        printf("팀 번호 입력: ");
+        scanf("%d", &b);
+
+     
+
 	
 int main()
 {
