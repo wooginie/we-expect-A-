@@ -49,4 +49,11 @@ void run(int x, int y)
       printf("\n\n    만든 함수 넣기");
 
    }
+  else if (x == 22 && y == 16) // 2. 정렬
+   {
+      menu_display();
+      gotoxy(1, 19);
+      printf("\n\n    만든 함수 넣기");            
+      
+   }
 
