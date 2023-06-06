@@ -16,3 +16,10 @@ void menu_display()
 
    gotoxy(5, 16);   puts("1. 승무패   예측");
    gotoxy(25, 16);   puts("2. 팀정보   보기");
+    gotoxy(45, 16);   puts("3. 다음시즌 예측");
+   gotoxy(65, 16);   puts("4. 미니 게임");
+   
+   gotoxy(x, y);      // 모두 출력한 후, 원래의 커서 위치로 이동
+   printf("▶");
+
+}
