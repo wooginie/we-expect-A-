@@ -19,12 +19,13 @@ int main()
 		printf("failed!");
 		return -1;
 	}
+	
   
     char line[1024];
       for (i = 0; i < K_Teams; i++) {
          fgets(line, 1024, fp);
          x = strtok(line, ",");
-         while (x != NULL) {
+         while (a != NULL) {
             strcpy(list_team[i].name_of_team, x);
             x = strtok(NULL, ",");
             strcpy(list_team[i].team_24season_ranking, x);
@@ -34,5 +35,18 @@ int main()
          }
 
       }
+	bring_allteams(list_expect);
+
+	choose_anyteams(list_expect);
+
+	fclose(fp);
+	
+	for (i = 0; i < K_Teams; i++) {
+             free(list_expect[i]);
+        }
+        free(list_expect);
+
+	return 0;
+}
 }
 
