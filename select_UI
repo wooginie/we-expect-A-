@@ -44,3 +44,9 @@ void run(int x, int y)
    
    if (x == 2 && y == 16) // 1. 검색
    {
+     menu_display();
+      gotoxy(1, 19);
+      printf("\n\n    만든 함수 넣기");
+
+   }
+
