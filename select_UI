@@ -70,4 +70,9 @@ void run(int x, int y)
       printf("\n\    만든 함수 넣기");
       
    }
-
+// (x,y)좌표로 커서를 이동
+void gotoxy(int x, int y)
+{
+   COORD pos = { x - 1,y - 1 };   // 원점은 (0,0)
+   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
