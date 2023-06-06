@@ -1,6 +1,4 @@
 
-
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -12,6 +10,13 @@ typedef struct teamInformation {
    char team_24season_ranking[100];
    char winning_reason[100];
 }INFO;
+
+void bring_teaminformation(INFO* teams) {
+	printf("\n");
+	printf("팀 이름: %s \n", teams->name);
+	printf("예상되는 순위: %s \n", teams->expected_ranking);
+	printf("이유: %s \n", teams->reason);
+}
 
 void bring_allteams(INFO** team) {
 	printf("내년에 있을 예상되는 팀 보기 \n");
