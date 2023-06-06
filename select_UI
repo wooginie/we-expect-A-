@@ -100,4 +100,6 @@ char key;      // case 분기를 위한 변수
    case 75:        // ← == 75
          move(-20, 0);
          break;
-
+case 77:        // → == 77
+         move(20, 0);
+         break;
