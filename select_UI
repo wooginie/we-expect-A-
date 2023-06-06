@@ -62,4 +62,12 @@ void run(int x, int y)
       gotoxy(1, 19);
       printf("\n\n    만든 함수 넣기");
    }
+   else if (x == 62 && y == 16)
+   {
+   
+      menu_display();
+      gotoxy(1, 19);
+      printf("\n\    만든 함수 넣기");
+      
+   }
 
