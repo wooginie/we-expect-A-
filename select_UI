@@ -82,3 +82,9 @@ int main()
    print_main();
    system("cls");
    print_talk();
+
+char key;      // case 분기를 위한 변수
+   x = 2, y = 16;   // 메뉴 출력시 "▶"가 있을 위치 설정
+
+   Cursor(false, 1);   // 콘솔 커서 숨기기
+   menu_display();      // 메뉴 화면 출력
