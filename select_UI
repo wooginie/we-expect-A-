@@ -38,4 +38,9 @@ void move(int m, int n)
     gotoxy(x, y);
    printf("▶");      // 해당 커서의 위치로 이동 후 ▶를 출력한다.
 }
-
+// 커서의 x, y좌표를 받아서 해당하는 함수 실행
+void run(int x, int y)
+{
+   
+   if (x == 2 && y == 16) // 1. 검색
+   {
