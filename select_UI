@@ -1,68 +1,7 @@
-void select() {
-
-	system("cls");
-	int room = 0;
-	system("mode con:cols=75 lines=20");
-	printf("\n");
-	printf("\n");
-	printf("\t\t\x1b[31m         K-LEAGUE GPT\x1b[0m\n\n\n");
-	textcolor(15);
-	printf("\t=========== \t=========== \t=========== \t===========\n\n");
-	if (c1 == 0) {
-		printf("\t\x1b[31m 1. 팀 정보 보기\x1b[0m");
-	}
-	else {
-		textcolor(0);
-		printf("\t    1. 팀 정보 보기");
-	}
-	if (c2 == 0) {
-		printf("\t\t\x1b[31m 2. 승리 확률 보기\x1b[0m");
-	}
-	else {
-		textcolor(0);
-		printf("\t\t    2. 승리 확률 보기");
-	}
-	if (c3 == 0) {
-		printf("\t\t\x1b[31m 3. 다음 시즌 예측\x1b[0m");
-	}
-	else {
-		textcolor(0);
-		printf("\t\t 3. 다음 시즌 예측");
-	}
-	if (c4 == 0) {
-		printf("\t\t\x1b[31m 4. 미니 게임\x1b[0m\n\n");
-	}
-	else {
-		textcolor(0);
-		printf("\t\t 4. 미니 게임\n\n");
-	}
-	textcolor(15);
-	printf("\t=========== \t=========== \t=========== \t===========\n\n\n\n\n");
-
-	if (c1 == 1 && c2 == 1 && c3 == 1 && c4 == 1) {
-		ck();
-	}
-
-	else {
-		printf("\t\t\t   입력하여 들어가시오.\n\n");
-		printf("\t\t\t\t     ");
-		scanf("%d", &number);
-
-		if (number == 1) {
-			c1 += 1;
-			infromation_main();
-		}
-		else if (number == 2) {
-			c2 += 1;
-			probobility_main();
-		}
-		else if (number == 3) {
-			c3 += 1;
-			nextseason_main();
-		}
-		else if (number == 4) {
-			c4 += 1;
-			minigame_main();
-		}
-	}
+void Cursor(bool flag, int size)
+{
+   CONSOLE_CURSOR_INFO cursorInfo;
+   cursorInfo.dwSize = size;
+   cursorInfo.bVisible = flag;
+   SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
