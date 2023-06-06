@@ -42,18 +42,24 @@ void move(int m, int n)
 void run(int x, int y)
 {
    
-   if (x == 2 && y == 16) // 1. 검색
+   if (x == 2 && y == 16) 
    {
      menu_display();
       gotoxy(1, 19);
       printf("\n\n    만든 함수 넣기");
 
    }
-  else if (x == 22 && y == 16) // 2. 정렬
+  else if (x == 22 && y == 16) 
    {
       menu_display();
       gotoxy(1, 19);
       printf("\n\n    만든 함수 넣기");            
       
+   }
+  else if (x == 42 && y == 16) 
+   {
+      menu_display();
+      gotoxy(1, 19);
+      printf("\n\n    만든 함수 넣기");
    }
 
