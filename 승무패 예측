@@ -94,6 +94,9 @@ void prediction(DATA list_game[]) {
 	double vic;
 	double tie;
 	double lose;
+	vic = list_game[opponent - 1].vic;
+	tie = list_game[opponent - 1].tie;
+	lose = list_game[opponent - 1].lose;
 	double games = vic + tie + lose;
 
 	// 승무패 확률을 출력한다.
