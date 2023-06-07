@@ -31,22 +31,9 @@ void matchData(char* dataName, DATA list_game[]) {
 		return;
 	}
 	//파일을 쪼개고, 구조체에 저장한다.	
-	for (int i = 0; i < opCount; i++) {
-		fgets(line, 1024, fp);
-		tp = strtok(line, ",");
-		while (tp != NULL) {
-			strcpy(list_game[i].opName, tp);
-			tp = strtok(NULL, ",");
-			score = atof(tp);
-			list_game[i].vic = score;
-			tp = strtok(NULL, ",");
-			score = atof(tp);
-			list_game[i].tie = score;
-			tp = strtok(NULL, ",");
-			score = atof(tp);
-			list_game[i].lose = score;
-			tp = strtok(NULL, ",");
-		}
+	while (fgets(line, sizeof(line), fp)) {
+		sscanf(line, "%[^,],%d,%d,%d,", list_game[i].opName, &list_game[i].vic, &list_game[i].tie, &list_game[i].lose);
+		i++;
 	}
 	fclose(fp);	
 }
