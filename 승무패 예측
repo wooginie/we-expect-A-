@@ -77,12 +77,15 @@ void prediction(DATA list_game[]) {
 		strcpy(dataFile, "전북.csv");
 		break;
 	case 12:
-		matchData("제주.csv");
+		strcpy(dataFile, "제주.csv");
 		break;
 	case 13:
-		matchData(".csv");
+		strcpy(dataFile, "포항.csv");
 		break;
 	}
+	
+	// 데이터 파일에서 경기 전적 가져오기
+	matchData(dataFile, list_game);
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
 	double vic = 7;
