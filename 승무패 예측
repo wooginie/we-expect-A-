@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 typedef struct gameData {
@@ -7,7 +8,7 @@ typedef struct gameData {
 	int lose;
 } DATA;
 
-void prediction(DATA list_game[opCount]);
+void prediction(DATA list_game[]);
 
 int main()
 {
@@ -15,7 +16,7 @@ int main()
 	return 0;
 }
 
-void prediction(DATA list_game[opCount]) {
+void prediction(DATA list_game[]) {
 	// 선언> bet:배팅할 팀, opponent: 상대 팀
 	int bet;
 	int opponent;
