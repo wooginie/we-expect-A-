@@ -91,9 +91,9 @@ void prediction(DATA list_game[]) {
 	matchData(dataFile, list_game);
 
 	// 경기 전적 데이터를 토대로 승무패 확률을 계산한다.
-	double vic = 7;
-	double tie = 5;
-	double lose = 10;
+	double vic;
+	double tie;
+	double lose;
 	double games = vic + tie + lose;
 
 	// 승무패 확률을 출력한다.
