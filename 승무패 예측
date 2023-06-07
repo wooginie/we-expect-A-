@@ -59,13 +59,13 @@ void prediction(DATA list_game[]) {
 		strcpy(dataFile, "서울.csv");
 		break;
 	case 6:
-		matchData("성남.csv");
+		strcpy(dataFile, "성남.csv");
 		break;
 	case 7:
-		matchData("수원.csv");
+		strcpy(dataFile, "수원.csv");
 		break;
 	case 8:
-		matchData("수원fc.csv");
+		strcpy(dataFile, "수원FC.csv");
 		break;
 	case 9:
 		matchData("울산.csv");
