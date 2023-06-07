@@ -21,15 +21,14 @@ int main() {
 
 void matchData(char* dataName, DATA list_game[]) {
 	//선언
-	DATA list_game[opCount];
 	char line[1024];
-	char* tp; //token pointer
-	double score;
+	int i = 0;
 
 	//구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.
-	FILE* fp = fopen("전북.csv", "r"); //file pointer
+	FILE* fp = fopen("dataName", "r"); //file pointer
 	if (fp == NULL) {
-		printf("파일 읽기 실패!");		
+		printf("파일 읽기 실패!");
+		return;
 	}
 	//파일을 쪼개고, 구조체에 저장한다.	
 	for (int i = 0; i < opCount; i++) {
