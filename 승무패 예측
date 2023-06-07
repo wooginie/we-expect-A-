@@ -82,6 +82,9 @@ void prediction(DATA list_game[]) {
 	case 13:
 		strcpy(dataFile, "포항.csv");
 		break;
+	default:
+		printf("잘못된 입력입니다.\n");
+		return;
 	}
 	
 	// 데이터 파일에서 경기 전적 가져오기
