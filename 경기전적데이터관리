@@ -11,15 +11,15 @@ typedef struct gameData {
 	int lose;
 }DATA; //배팅 팀은 아직 없음. case에 들어갈 듯?
 
-void matchData();
+void matchData(char* dataName, DATA list_game[]);
 
 int main() {
-	matchData();
-
+ 	DATA list_game[opCount];
+	matchData();	
 	return 0;
 }
 
-void matchData() {
+void matchData(char* dataName, DATA list_game[]) {
 	//선언
 	DATA list_game[opCount];
 	char line[1024];
