@@ -41,12 +41,13 @@ void prediction(DATA list_game[]) {
 	scanf("%s", &opponent);
 	
 	//switch case 문으로 배팅하고 싶은 팀의 경기 전적 데이터 파일(.csv) 선택
+	char dataFile[20];
 	switch (bet) {
 	case 1:
-		matchData("강원.csv");
+		strcpy(dataFile, "강원.csv");
 		break;
 	case 2:
-		matchData("김천상무.csv");
+		strcpy(dataFile, "광주.csv");
 		break;
 	case 3:
 		matchData("광주.csv");
