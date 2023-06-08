@@ -3,6 +3,7 @@
 #include<string.h>
 #include <time.h>
 #include <Windows.h>
+#include <conio.h>
 
 #define K_leagueTeam 13
 
@@ -67,6 +68,7 @@ void show_allteaminfo(INFO** teams) {
 
 void select_team(INFO** teams) {
 	int num, i;
+	char next;
 	
 	while (1) {
         Sleep(2000);
@@ -86,6 +88,15 @@ void select_team(INFO** teams) {
             Sleep(1000);
             show_teaminfo(teams[num - 1]);
             printf("\n");
+	    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+            next = getch();
+            if (next == 13) {
+                Sleep(1000);
+                system("cls");
+            }
+            else if (next == 27) {
+                break;
+            }
         }
         else {
             printf("==================================================================\n");
