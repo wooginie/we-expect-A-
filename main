@@ -205,7 +205,7 @@ void print_talk()
         printf("\n");
         printf("===========================================================================\n");
         i++;
-        Sleep(28);
+        Sleep(2800);
         system("cls");
     }
 }
@@ -300,7 +300,7 @@ void print_mains() {
 
             token = strtok(NULL, ",");
             field++;
-        }
+        }        
     }
 
     //show_allteaminfo(list_team);
@@ -312,6 +312,20 @@ void print_mains() {
         free(list_team[i]);
     }
     free(list_team);
+
+    //시작 화면 돌아가기
+    int next;
+    printf("\n");
+    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    next = _getch();
+    if (next == 13) {
+        Sleep(1000);
+        system("cls");
+        print_mains();
+    }
+    else if (next == 27) {
+        system("cls");
+    }
 
     return;
 }
@@ -370,6 +384,7 @@ void run(int x, int y)
         menu_display();
         gotoxy(1, 19);
 		prediction(list_game);
+        menu_display();
 
     }
 
@@ -386,6 +401,7 @@ void run(int x, int y)
         menu_display();
         gotoxy(1, 19);
         print_mains();
+        menu_display();
     }
 
     else if (x == 62 && y == 16) // 4. 미니 퀴즈
@@ -518,6 +534,20 @@ void prediction(DATA list_game[]) {
     printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
     printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
     printf("\n==============================================================\n\n");
+
+    //시작 화면 돌아가기
+    int next;
+    printf("\n");
+    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    next = _getch();
+    if (next == 13) {
+        Sleep(1000);
+        system("cls");
+        prediction(list_game);
+    }
+    else if (next == 27) {
+        system("cls");
+    }
 }
 
 void show_teaminfo(INFO* team) {
