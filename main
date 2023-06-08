@@ -125,7 +125,9 @@ void prediction(DATA list_game[]) {
 	double lose = list_game[opponent-1].lose;
 	double games = vic + tie + lose;
 	printf("\n==============================================================\n\n");
-	printf("\t\t%s  VS    %s", list_game[bet - 1].opName, list_game[opponent - 1].opName);
+	printf("\t\t\t%s\n\n\t\t\t VS\n\n \t\t\t%s\n\n", list_game[bet - 1].opName, list_game[opponent - 1].opName);
+	printf("\n==============================================================\n\n");
+	printf("확률을 계산 중입니다. 잠시만 기다려주세요......");
 	printf("\t\t승리 확률: %.2lf%%\n", vic / games * 100);
 	printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
 	printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
