@@ -1,7 +1,8 @@
 void print_main() {
+   system("mode con:cols=75 lines=20");
    printf("\n");
    printf("\n");
-   printf("\n");
+   printf("\x1b[31m                                K-LEAGUE GPT\x1b[0m\n");
    printf("        ===========================================================================\n");
    printf("\x1b[31m|                                    |                                     | \x1b[0m\n");
    printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
@@ -13,5 +14,6 @@ void print_main() {
    printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
    printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
    printf("        ===========================================================================\n");
-   printf("\n");
+   printf("\x1b[31m                                 환영합니다. \x1b[0m\n");
+   system("pause");
 }
