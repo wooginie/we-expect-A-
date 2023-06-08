@@ -318,7 +318,11 @@ void print_mains() {
     printf("\n");
     printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
     next = _getch();
-    
+    if (next == 13) {
+        Sleep(1000);
+        system("cls");
+        print_mains();
+    }
     else if (next == 27) {
         system("cls");
     }
