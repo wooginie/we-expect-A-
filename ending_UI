@@ -1,16 +1,18 @@
 void Ending() {
 	system("cls");
 	printf("\n");
-	printf("\n");
+	printf("======================================================\n");
 	printf("\t\t\x1b[31m         K-LEAGUE GPT\x1b[0m\n\n\n");
 	textcolor(15);
 	printf("\t\t       -----------------------------\n");
 	printf("\t\t       |             |             |\n");
 	printf("\t\t       |             |             |\n");
 	printf("\t\t       |             |             |\n");
-	printf("\t\t       |          ● |  ●         |\n");
+	printf("\t\t       |          ●  |  ●          |\n");
 	printf("\t\t       |             |             |\n");
 	printf("\t\t       |             |             |\n");
 	printf("\t\t       |             |             |\n");
 	printf("\t\t       -----------------------------\n\n");
 	printf("                   이용해주셔서 감사합니다.\n");
+	printf("======================================================\n");
+	
