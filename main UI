@@ -1,19 +1,17 @@
 void print_main() {
-   system("mode con:cols=75 lines=20");
    printf("\n");
-   printf("\x1b[31m                        K-LEAGUE GPT\x1b[0m\n");
    printf("\n");
-   printf("\x1b[31m                                    *\x1b[0m\n");
-   printf("\x1b[31m                                   ===\x1b[0m\n");
-   printf("\x1b[31m                             =K=L=E=A=G=U=E=\x1b[0m\n");
-   printf("\x1b[31m                          =====================\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = = = = = = =\x1b[0m\n");
-   printf("\x1b[31m                          = = = = = | | = = = =\x1b[0m\n");
-   printf("\x1b[31m                         =======================\x1b[0m\n");
-   printf("===========================================================================\n");
    printf("\n");
-   system("pause");
+   printf("        ===========================================================================\n");
+   printf("\x1b[31m|                                    |                                     | \x1b[0m\n");
+   printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
+   printf("\x1b[31m|====                              = = =                               ====| \x1b[0m\n");
+   printf("\x1b[31m|   |                            =   |   =                             |   | \x1b[0m\n");
+   printf("\x1b[31m|   |                           =    =    =                            |   | \x1b[0m\n");
+   printf("\x1b[31m|   |                            =   |   =                             |   |   \x1b[0m\n");
+   printf("\x1b[31m|====                              = = =                               ====|\x1b[0m\n");
+   printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
+   printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
+   printf("        ===========================================================================\n");
+   printf("\n");
 }
