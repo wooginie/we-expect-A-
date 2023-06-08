@@ -370,6 +370,7 @@ void run(int x, int y)
         menu_display();
         gotoxy(1, 19);
 		prediction(list_game);
+        menu_display();
 
     }
 
@@ -518,6 +519,11 @@ void prediction(DATA list_game[]) {
     printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
     printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
     printf("\n==============================================================\n\n");
+
+    //시작 화면 돌아가기
+        int next;
+        printf("\n");
+        
 }
 
 void show_teaminfo(INFO* team) {
