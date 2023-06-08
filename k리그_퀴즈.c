@@ -80,6 +80,28 @@ void play_quiz(Quiz a[]) {
     printf("==================================================================\n");
 }
 
+void read_quizFile(FILE* file, Quiz* list_quiz, int totalQuizNum) {
+    char line[1024];
+    char* a_quiz;
+    int i_quiz, b_quiz;
+
+    for (i_quiz = 0; i_quiz < totalQuizNum; i_quiz++) {
+        fgets(line, 1024, file);
+        a_quiz = strtok(line, ",");
+        while (a_quiz != NULL) {
+            strcpy(list_quiz[i_quiz].question, a_quiz);
+            a_quiz = strtok(NULL, ",");
+            strcpy(list_quiz[i_quiz].choice, a_quiz);
+            a_quiz = strtok(NULL, ",");
+            b_quiz = atoi(a_quiz);
+            list_quiz[i_quiz].answer = b_quiz;
+            a_quiz = strtok(NULL, ",");
+            strcpy(list_quiz[i_quiz].explanation, a_quiz);
+            a_quiz = strtok(NULL, ",");
+        }
+    }
+}
+
 int main() {
     Quiz* list_quiz;
     FILE* p_quiz;
