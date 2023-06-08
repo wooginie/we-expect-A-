@@ -14,7 +14,7 @@ typedef struct {
     char explanation[500];
 } Quiz;
 
-void play_quiz(Quiz a[]) {
+void play_quiz(Quiz* a) {
     int i, j, n;
     int randomIndex;
     int arr[quizNum];
@@ -31,7 +31,10 @@ void play_quiz(Quiz a[]) {
         }
     }
     printf("==================================================================\n");
-    printf("잠시후 문제가 시작됩니다!");
+    printf("\n");
+    printf("                  <<잠시후 문제가 시작됩니다>>           \n");
+    printf("\n");
+    printf("==================================================================\n");
     Sleep(2000);
     system("cls");
   
