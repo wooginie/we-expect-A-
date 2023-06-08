@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include <Windows.h>
-#define K_Teams 15
+#define K_league1 14
 
 typedef struct teamInformation {
     char team_name1[100];
