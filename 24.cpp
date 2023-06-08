@@ -61,43 +61,58 @@ void choose_team1(INFO** teams) {
     
 }
 	
-int main()
-{
-   int i;
-	INFO** list_expect;
-	FILE* fp = fopen("file name.csv", "r");
-	if (fp == NULL) {
-		printf("failed!");
-		return -1;
-	}
-	
-  
-    char line[1024];
-      for (a = 0; a < K_Teams; a++) {
-         fgets(line, 1024, fp);
-         x = strtok(line, ",");
-         while (b != NULL) {
-            strcpy(list_team[i].name_of_team, x);
-            x = strtok(NULL, ",");
-            strcpy(list_team[i].team_24season_ranking, x);
-            x = strtok(NULL, ",");
-            strcpy(list_team[i].winning_reason, x);
-            x = strtok(NULL, ",");
-         }
+int main() {
+    int i;
+    INFO** list_team;
 
-      }
-	bring_allteams(list_expect);
+    FILE* fp = fopen(".csv", "r");
 
-	choose_anyteams(list_expect);
+    if (fp == NULL) {
+        printf("file failed");
+        return -1;
+    }
 
-	fclose(fp);
-	
-	for (a = 0; a < K_Teams; a++) {
-             free(list_expect[a]);
+    list_team = (INFO**)malloc(K_league1 * sizeof(INFO*));
+    if (list_team == NULL) {
+        printf("memory failed");
+        return -1;
+    }
+
+    char line[5000];
+    for (i = 0; i < K_league1; i++) {
+        fgets(line, 5000, fp);
+        list_team[i] = (INFO*)malloc(sizeof(INFO));
+
+        char* token = strtok(line, ",");
+        int field = 0;
+        while (token != NULL && field < 14) {
+            switch (field) {
+            case 0:
+                strcpy(list_team[i]->team_name1, token);
+                break;
+            case 1:
+                strcpy(list_team[i]->team_ranking1, token);
+                break;
+            case 2:
+                strcpy(list_team[i]->team_reason1, token);
+                break;
+            }
+
+            token = strtok(NULL, ",");
+            field++;
         }
-        free(list_expect);
+    }
 
-	return 0;
-}
+    //show_allteaminfo(list_team);
+    choose_team1(list_team);
+
+    fclose(fp);
+
+    for (i = 0; i < K_league1; i++) {
+        free(list_team[i]);
+    }
+    free(list_team);
+
+    return 0;
 }
 
