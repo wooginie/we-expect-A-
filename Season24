@@ -1,0 +1,122 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <Windows.h>
+#define K_league1 15
+
+typedef struct teamInformation {
+    char team_name1[100];
+    char team_ranking1[100];
+    char team_reason1[1024];
+} INFO;
+
+void bring_teaminfo1(INFO* team) {
+    printf("==================================================================\n");
+    printf("\n");
+    printf("팀 이름: %s \n", team->team_name1);
+    printf("다음시즌 예상 순위: %s \n", team->team_ranking1);
+    printf("이유: %s \n", team->team_reason1);
+    printf("\n");
+    printf("==================================================================\n");
+}
+
+void bring_allteaminfo1(INFO** teams) {
+    printf("모든 팀 보기 \n");
+    for (int i = 0; i < K_league1; i++) {
+        bring_teaminfo1(teams[i]);
+    }
+}
+
+void choose_team1(INFO** teams) {
+    int n, i;
+
+    while (1) {
+        printf("==================================================================\n");
+        printf("\n");
+        for (i = 0; i < K_league1; i++) {
+            printf("%d.%s \n", i + 1, teams[i]->team_name1);
+        }
+        printf("\n");
+        printf("원하는 팀의 번호를 입력하세요: ");
+        scanf("%d", &n);
+        printf("\n");
+        printf("==================================================================\n");
+        system("cls");
+
+        if (n >= 1 && n <= K_league1) {
+            bring_teaminfo1(teams[n - 1]);
+            break;
+        }
+        else {
+            printf("==================================================================\n");
+            printf("\n");
+            printf("번호를 다시 입력하세요(1번~%d번) \n", K_league1);
+            printf("\n");
+            printf("==================================================================\n");
+
+        }
+
+    }
+
+}
+void print_main(){
+
+    int i;
+    INFO** list_team;
+
+    FILE* fp = fopen("게이.csv", "r");
+
+    if (fp == NULL) {
+        printf("file failed");
+        return -1;
+    }
+
+    list_team = (INFO**)malloc(K_league1 * sizeof(INFO*));
+    if (list_team == NULL) {
+        printf("memory failed");
+        return -1;
+    }
+
+    char line[5000];
+    for (i = 0; i < K_league1; i++) {
+        fgets(line, 5000, fp);
+        list_team[i] = (INFO*)malloc(sizeof(INFO));
+
+        char* token = strtok(line, ",");
+        int field = 0;
+        while (token != NULL && field < 14) {
+            switch (field) {
+            case 0:
+                strcpy(list_team[i]->team_name1, token);
+                break;
+            case 1:
+                strcpy(list_team[i]->team_ranking1, token);
+                break;
+            case 2:
+                strcpy(list_team[i]->team_reason1, token);
+                break;
+            }
+
+            token = strtok(NULL, ",");
+            field++;
+        }
+    }
+
+    //show_allteaminfo(list_team);
+    choose_team1(list_team);
+
+    fclose(fp);
+
+    for (i = 0; i < K_league1; i++) {
+        free(list_team[i]);
+    }
+    free(list_team);
+
+    return 0;
+}
+}
+int main(){
+ print_main();
+ }

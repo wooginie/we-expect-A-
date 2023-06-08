@@ -1,9 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include<windows.h>
-#define teamCount 13 //K리그에 참여하는 팀의 수 (= csv 파일의 행의 수)
 
 typedef struct gameData {
 	char opName[32]; //opponent name
@@ -12,40 +8,16 @@ typedef struct gameData {
 	int lose;
 } DATA;
 
-void matchData(char* dataName, DATA list_game[]);
 void prediction(DATA list_game[]);
-
-
 
 int main()
 {
-	DATA list_game[teamCount];
-	prediction(list_game);
+	prediction(DATA list_game[opCount]);
 	return 0;
 }
 
-
-
-void matchData(char* dataName, DATA list_game[]) {
-	//구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.	
-	FILE* fp = fopen(dataName, "r"); //file pointer
-	if (fp == NULL) {
-		printf("파일 읽기 실패!");
-		return;
-	}
-	
-	//파일을 쪼개고, 구조체에 저장한다.
-	char line[512];
-	int i = 0;
-	while (fgets(line, sizeof(line), fp)) {
-		sscanf(line, "%[^,],%d,%d,%d,", list_game[i].opName, &list_game[i].vic, &list_game[i].tie, &list_game[i].lose);
-		i++;
-	}
-	fclose(fp);
-}
-
 void prediction(DATA list_game[]) {
-	// 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
+// 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
 	int bet, opponent;
 	printf("==============================================================\n");
 	printf("\t\t\t1. 강원\n");
@@ -67,7 +39,6 @@ void prediction(DATA list_game[]) {
 	printf("-\n");
 	printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
 	scanf("%d", &opponent);
-	system("cls");
 
 	//switch case 문으로 배팅하고 싶은 팀의 경기 전적 데이터 파일(.csv) 선택
 	char dataFile[20];
@@ -120,12 +91,11 @@ void prediction(DATA list_game[]) {
 	matchData(dataFile, list_game);
 
 	// 경기 전적을 기반으로 승무패 확률 계산하고 출력하기
-	double vic = list_game[opponent-1].vic;
-	double tie = list_game[opponent-1].tie;
-	double lose = list_game[opponent-1].lose;
+	double vic = list_game[opponent].vic;
+	double tie = list_game[opponent].tie;
+	double lose = list_game[opponent].lose;
 	double games = vic + tie + lose;
 	printf("\n==============================================================\n\n");
-	printf("\t\t%s  VS    %s", list_game[bet - 1].opName, list_game[opponent - 1].opName);
 	printf("\t\t승리 확률: %.2lf%%\n", vic / games * 100);
 	printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
 	printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
