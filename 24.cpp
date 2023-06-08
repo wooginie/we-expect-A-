@@ -48,7 +48,18 @@ void choose_team1(INFO** teams) {
             bring_teaminfo1(teams[n - 1]);
             break;
         }
+	 else {
+            printf("==================================================================\n");
+            printf("\n");
+            printf("번호를 다시 입력하세요(1번~%d번) \n",K_league1);
+            printf("\n");
+            printf("==================================================================\n");
 
+        }
+
+    }
+    
+}
 	
 int main()
 {
