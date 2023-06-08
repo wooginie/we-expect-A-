@@ -72,46 +72,90 @@ void select_team(INFO** teams) {
 
 }
 
+INFO** read_Teaminfo(const char* filename) {
+    INFO** list_team = (INFO**)malloc(K_leagueTeam * sizeof(INFO*));
+    if (list_team == NULL) {
+        printf("메모리 할당 실패!");
+        return NULL;
+    }
+
+    FILE* fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("파일 읽기 실패!");
+        free(list_team);
+        return NULL;
+    }
+
+    char line[5000];
+    for (int i = 0; i < K_leagueTeam; i++) {
+        fgets(line, 5000, fp);
+        list_team[i] = (INFO*)malloc(sizeof(INFO));
+
+        char* token = strtok(line, ",");
+        int field = 0;
+        while (token != NULL && field < 14) {
+            switch (field) {
+            case 0:
+                strcpy(list_team[i]->team_name, token);
+                break;
+            case 1:
+                strcpy(list_team[i]->team_uniform, token);
+                break;
+            case 2:
+                strcpy(list_team[i]->last_ranking, token);
+                break;
+            case 3:
+                strcpy(list_team[i]->team_emblem, token);
+                break;
+            case 4:
+                strcpy(list_team[i]->team_stadium, token);
+                break;
+            case 5:
+                strcpy(list_team[i]->team_mascot, token);
+                break;
+            case 6:
+                strcpy(list_team[i]->team_coach, token);
+                break;
+            case 7:
+                strcpy(list_team[i]->team_captain, token);
+                break;
+            case 8:
+                strcpy(list_team[i]->team_history, token);
+                break;
+            case 9:
+                strcpy(list_team[i]->team_fw, token);
+                break;
+            case 10:
+                strcpy(list_team[i]->team_mf, token);
+                break;
+            case 11:
+                strcpy(list_team[i]->team_df, token);
+                break;
+            case 12:
+                strcpy(list_team[i]->team_gk, token);
+                break;
+            case 13:
+                strcpy(list_team[i]->team_song, token);
+                break;
+            }
+
+            token = strtok(NULL, ",");
+            field++;
+        }
+    }
+
+    fclose(fp);
+
+    return list_team;
+}
+
 int main() {
 	int i;
 	INFO** list_team;
-
-	FILE* fp = fopen("k리그_팀정보.csv", "r");
-
-	if (fp == NULL) {
-		printf("파일 읽기 실패!");
-		return -1;
-	}
 	
-	list_team = (INFO**)malloc(K_leagueTeam * sizeof(INFO*));
-        if (list_team == NULL) {
-            printf("메모리 할당 실패!");
-            return -1;
-        }
-
-	char line[1024];
-	for (i = 0; i < K_leagueTeam; i++) {
-		fgets(line, 1024, fp);
-		a = strtok(line, ",");
-		while (a != NULL) {
-			strcpy(list_team[i].team_name, a);
-			a = strtok(NULL, ",");
-			strcpy(list_team[i].team_info, a);
-			a = strtok(NULL, ",");
-			strcpy(list_team[i].last_ranking, a);
-			a = strtok(NULL, ",");
-			strcpy(list_team[i].key_player, a);
-			a = strtok(NULL, ",");
-			strcpy(list_team[i].team_song, a);
-			a = strtok(NULL, ",");
-		}
-	}
-
 	show_allteaminfo(list_team);
 
 	select_team(list_team);
-
-	fclose(fp);
 	
 	for (i = 0; i < K_leagueTeam; i++) {
              free(list_team[i]);
