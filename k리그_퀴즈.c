@@ -105,9 +105,7 @@ void read_quizFile(FILE* file, Quiz* list_quiz, int totalQuizNum) {
 int main() {
     Quiz* list_quiz;
     FILE* p_quiz;
-    char* a_quiz;
-    int i_quiz, b_quiz;
-
+  
     srand(time(NULL));
 
     p_quiz = fopen("k리그_퀴즈.csv", "r");
@@ -117,24 +115,9 @@ int main() {
         return -1;
     }
     
-    char line[1024];
     list_quiz = (Quiz*)malloc(totalQuiz * sizeof(Quiz));
     
-    for (i_quiz = 0; i_quiz < totalQuiz; i_quiz++) {
-        fgets(line, 1024, p_quiz);
-        a_quiz = strtok(line, ",");
-        while (a_quiz != NULL) {
-            strcpy(list_quiz[i_quiz].question, a_quiz);
-            a_quiz = strtok(NULL, ",");
-            strcpy(list_quiz[i_quiz].choice, a_quiz);
-            a_quiz = strtok(NULL, ",");
-            b_quiz = atoi(a_quiz);
-            list_quiz[i_quiz].answer = b_quiz;
-            a_quiz = strtok(NULL, ",");
-            strcpy(list_quiz[i_quiz].explanation, a_quiz);
-            a_quiz = strtok(NULL, ",");
-        }
-    }
+    read_quizFile(p_quiz, list_quiz, totalQuiz);
 
     play_quiz(list_quiz);
 
