@@ -34,4 +34,17 @@
           }
 
        }
+       bring_allteams(list_expect);
+
+ 	choose_anyteams(list_expect);
+
+ 	fclose(fp);
+
+ 	for (i = 0; i < K_Teams; i++) {
+              free(list_expect[i]);
+         }
+         free(list_expect);
+
+ 	return 0;
+ }
  }
