@@ -1,1 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<windows.h>
+#define teamCount 13 //K리그에 참여하는 팀의 수 (= csv 파일의 행의 수)
 
+typedef struct gameData {
+	char opName[32]; //opponent name
+	int vic;
+	int tie;
+	int lose;
+} DATA;
+
+void matchData(char* dataName, DATA list_game[]);
+void prediction(DATA list_game[]);
+
+
+
+int main()
+{
+	DATA list_game[teamCount];
+	prediction(list_game);
+	return 0;
+}
