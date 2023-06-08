@@ -131,6 +131,8 @@ void prediction(DATA list_game[]) {
 	Sleep(5000);
 	system("cls");
 	printf("\n==============================================================\n\n");
+	printf("Betting: %s\n", list_game[bet - 1].opName);
+	printf("\t\t%s VS %s\n\n", list_game[bet - 1].opName, list_game[opponent - 1].opName);
 	printf("\t\t승리 확률: %.2lf%%\n", vic / games * 100);
 	printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
 	printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
