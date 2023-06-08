@@ -1,0 +1,13 @@
+void Ending() {
+	system("cls");
+	printf("\n");
+	printf("\n");
+	printf("\t\t       -----------------------------\n");
+	printf("\t\t       |             |             |\n");
+	printf("\t\t       |             |             |\n");
+	printf("\t\t       |             |             |\n");
+	printf("\t\t       |          ● |  ●         |\n");
+	printf("\t\t       |             |             |\n");
+	printf("\t\t       |             |             |\n");
+	printf("\t\t       |             |             |\n");
+	printf("\t\t       -----------------------------\n\n");
