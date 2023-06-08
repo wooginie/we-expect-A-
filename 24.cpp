@@ -60,9 +60,8 @@ void choose_team1(INFO** teams) {
     }
     
 }
-	
-int main() {
-    int i;
+void all_main(){
+int i;
     INFO** list_team;
 
     FILE* fp = fopen(".csv", "r");
@@ -115,4 +114,9 @@ int main() {
 
     return 0;
 }
+}
 
+int main() {
+	all_main();
+    
+}
