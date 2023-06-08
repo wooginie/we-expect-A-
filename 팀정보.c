@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <time.h>
+#include <Windows.h>
 
 #define K_leagueTeam 13
 
@@ -64,22 +66,33 @@ void show_allteaminfo(INFO** teams) {
 }
 
 void select_team(INFO** teams) {
-	int n, i;
-	
-	for (i = 0; i < K_leagueTeam; i++) {
-             printf("%d.%s \n", i + 1, teams[i]->team_name);
-        }
+	int num, i;
 	
 	while (1) {
+        Sleep(2000);
+        printf("==================================================================\n");
+        printf("\n");
+        for (i = 0; i < K_leagueTeam; i++) {
+            printf("%d.%s \n", i + 1, teams[i]->team_name);
+        }
+        printf("\n");
+        printf("==================================================================\n");
+        printf("\n");
         printf("원하는 팀의 번호를 입력하세요: ");
-        scanf("%d", &n);
+        scanf("%d", &num);
+        system("cls");
 
-        if (n >= 1 && n <= K_leagueTeam) {
-            show_teaminfo(teams[n - 1]);
-            break;
+        if (num >= 1 && num <= K_leagueTeam) {
+            Sleep(1000);
+            show_teaminfo(teams[num - 1]);
+            printf("\n");
         }
         else {
+            printf("==================================================================\n");
+            printf("\n");
             printf("번호를 다시 입력하세요(1번~%d번) \n",K_leagueTeam);
+            printf("\n");
+            printf("==================================================================\n");
         }
 
     }
