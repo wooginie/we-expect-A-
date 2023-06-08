@@ -10,6 +10,14 @@
     char winning_reason[100];
  }INFO;
  
+ void select_team(INFO** teams) {
+ 	int b, a;
+
+ 	for (i = 0; a < K_Team; a++) {
+              printf("%d.%s \n", a + 1, teams[a]->name);
+         }
+
+ 
  void bring_teaminformation(INFO* teams) {
  	printf("\n");
  	printf("팀 이름: %s \n", teams->name);
