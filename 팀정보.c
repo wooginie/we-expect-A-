@@ -169,10 +169,7 @@ int main() {
 
 	select_team(list_team);
 	
-	for (i = 0; i < K_leagueTeam; i++) {
-             free(list_team[i]);
-        }
-        free(list_team);
+	free_Teaminfo(list_team);
 
 	return 0;
 }
