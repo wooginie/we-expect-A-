@@ -149,6 +149,13 @@ INFO** read_Teaminfo(const char* filename) {
     return list_team;
 }
 
+void free_Teaminfo(INFO** list_team) {
+    for (int i = 0; i < K_leagueTeam; i++) {
+        free(list_team[i]);
+    }
+    free(list_team);
+}
+
 int main() {
 	int i;
 	INFO** list_team;
