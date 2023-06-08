@@ -1,22 +1,26 @@
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <Windows.h>
 #define K_Teams 15
 
 typedef struct teamInformation {
-   char name_of_team[100];
-   char team_24season_ranking[100];
-   char winning_reason[100];
-}INFO;
+    char team_name1[100];
+    char team_ranking1[100];
+    char team_reason1[100];
+} INFO;
 
-void bring_teaminformation(INFO* teams) {
-	printf("\n");
-	printf("팀 이름: %s \n", teams->name);
-	printf("예상되는 순위: %s \n", teams->expected_ranking);
-	printf("이유: %s \n", teams->reason);
+void bring_teaminfo1(INFO* team) {
+    printf("==================================================================\n");
+    printf("\n");
+    printf("팀 이름: %s \n", team->team_name1);
+    printf("다음시즌 예상 순위: %s \n", team->team_ranking1);
+    printf("이유: %s \n", team->team_reason1);
+    printf("\n");
+    printf("==================================================================\n");
 }
+
 
 void bring_allteams(INFO** team) {
 	printf("내년에 있을 예상되는 팀 보기 \n");
