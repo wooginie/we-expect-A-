@@ -528,9 +528,11 @@ void prediction(DATA list_game[]) {
         if (next == 13) {
             Sleep(1000);
             system("cls");
-            
+            prediction(list_game);
         }
-        
+        else if (next == 27) {
+            system("cls");
+        }
 }
 
 void show_teaminfo(INFO* team) {
