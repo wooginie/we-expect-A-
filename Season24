@@ -65,41 +65,56 @@ void bring_allteaminfo1(INFO** teams) {
          bring_teaminfo1(teams[i]);
      }
  }
- int main()
- {
-    int i;
-    INFO** list_expect;
- 	FILE* fp = fopen("file name.csv", "r");
- 	if (fp == NULL) {
- 		printf("failed!");
- 		return -1;
- 	}
+nt main() {
+     int i;
+     INFO** list_team;
 
-     char line[1024];
-       for (i = 0; i < K_Teams; i++) {
-          fgets(line, 1024, fp);
-          x = strtok(line, ",");
-          while (x != NULL) {
-             strcpy(list_team[i].name_of_team, x);
-             x = strtok(NULL, ",");
-             strcpy(list_team[i].team_24season_ranking, x);
-             x = strtok(NULL, ",");
-             strcpy(list_team[i].winning_reason, x);
-             x = strtok(NULL, ",");
-          }
+     FILE* fp = fopen(".csv", "r");
 
-       }
-       bring_allteams(list_expect);
+     if (fp == NULL) {
+         printf("file failed");
+         return -1;
+     }
 
- 	choose_anyteams(list_expect);
+     list_team = (INFO**)malloc(K_league1 * sizeof(INFO*));
+     if (list_team == NULL) {
+         printf("memory failed");
+         return -1;
+     }
 
- 	fclose(fp);
+     char line[5000];
+     for (i = 0; i < K_league1; i++) {
+         fgets(line, 5000, fp);
+         list_team[i] = (INFO*)malloc(sizeof(INFO));
 
- 	for (i = 0; i < K_Teams; i++) {
-              free(list_expect[i]);
+         char* token = strtok(line, ",");
+         int field = 0;
+         while (token != NULL && field < 14) {
+             switch (field) {
+             case 0:
+                 strcpy(list_team[i]->team_name1, token);
+                 break;
+             case 1:
+                 strcpy(list_team[i]->team_ranking1, token);
+                 break;
+             case 2:
+                 strcpy(list_team[i]->team_reason1, token);
+                 break;
+             }
+
+             token = strtok(NULL, ",");
+             field++;
          }
-         free(list_expect);
+            }
+             //show_allteaminfo(list_team);
+     choose_team1(list_team);
 
- 	return 0;
- }
+     fclose(fp);
+
+     for (i = 0; i < K_league1; i++) {
+         free(list_team[i]);
+     }
+     free(list_team);
+
+     return 0;
  }
