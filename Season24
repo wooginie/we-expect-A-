@@ -21,10 +21,19 @@ void choose_team1(INFO** teams) {
          for (i = 0; i < K_league1; i++) {
              printf("%d.%s \n", i + 1, teams[i]->team_name1);
              }
-             else {
-             printf("팀 번호 재입력: \n",K_Team);
-        }
-    }
+             printf("\n");
+         printf("원하는 팀의 번호를 입력하세요: ");
+         scanf("%d", &n);
+         printf("\n");
+         printf("==================================================================\n");
+         system("cls");
+
+     }
+
+         if (n >= 1 && n <= K_league1) {
+             bring_teaminfo1(teams[n - 1]);
+             break;
+         }
      
 
  
