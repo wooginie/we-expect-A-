@@ -316,6 +316,12 @@ void print_mains() {
     //시작 화면 돌아가기
     int next;
     printf("\n");
+    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    next = _getch();
+    
+    else if (next == 27) {
+        system("cls");
+    }
 
     return;
 }
