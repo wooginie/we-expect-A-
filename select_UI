@@ -1,0 +1,125 @@
+int x, y;    
+void Cursor(bool flag, int size);
+void menu_display();
+void move(int m, int n);
+void run(int x, int y);
+void gotoxy(int x, int y);
+void Cursor(bool flag, int size)
+{
+   CONSOLE_CURSOR_INFO cursorInfo;
+   cursorInfo.dwSize = size;
+   cursorInfo.bVisible = flag;
+   SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+}
+// 메뉴 표시
+void menu_display()
+{
+   system("cls");      // 화면 청소
+   gotoxy(5, 2);    puts("K리그 Gpt");
+   gotoxy(5, 5);    puts("프로그램 사용법 ☞   이동: 방향키");
+   gotoxy(5, 7);    puts("         선택: Enter");
+   gotoxy(5, 9);    puts("         종료: Esc");
+
+   gotoxy(5, 16);   puts("1. 승무패   예측");
+   gotoxy(25, 16);   puts("2. 팀정보   보기");
+    gotoxy(45, 16);   puts("3. 다음시즌 예측");
+   gotoxy(65, 16);   puts("4. 미니 게임");
+   
+   gotoxy(x, y);      // 모두 출력한 후, 원래의 커서 위치로 이동
+   printf("▶");
+
+}
+// 키보드 입력에 따른 커서 이동
+void move(int m, int n)
+{
+   gotoxy(x, y);
+   printf("  ");      // 전에 있던 ▶는 공백으로 덮어쓴다.
+   gotoxy(x = x + m, y = y + n);
+// 커서가 지정할 좌표 밖으로 나가지 않도록
+   if (y > 16) y = 16;
+   if (y < 16) y = 16;
+   if (y == 16 && x > 63) x = 2;
+   if (y == 16 && x < 2) x = 63;
+   
+    gotoxy(x, y);
+   printf("▶");      // 해당 커서의 위치로 이동 후 ▶를 출력한다.
+}
+// 커서의 x, y좌표를 받아서 해당하는 함수 실행
+void run(int x, int y)
+{
+   
+   if (x == 2 && y == 16) 
+   {
+     menu_display();
+      gotoxy(1, 19);
+      printf("\n\n    만든 함수 넣기");
+
+   }
+  else if (x == 22 && y == 16) 
+   {
+      menu_display();
+      gotoxy(1, 19);
+      printf("\n\n    만든 함수 넣기");            
+      
+   }
+  else if (x == 42 && y == 16) 
+   {
+      menu_display();
+      gotoxy(1, 19);
+      printf("\n\n    만든 함수 넣기");
+   }
+   else if (x == 62 && y == 16)
+   {
+   
+      menu_display();
+      gotoxy(1, 19);
+      printf("\n\    만든 함수 넣기");
+      
+   }
+// (x,y)좌표로 커서를 이동
+void gotoxy(int x, int y)
+{
+   COORD pos = { x - 1,y - 1 };   // 원점은 (0,0)
+   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
+
+int main()
+{
+   print_main();
+   system("cls");
+   print_talk();
+
+char key;      // case 분기를 위한 변수
+   x = 2, y = 16;   // 메뉴 출력시 "▶"가 있을 위치 설정
+
+   Cursor(false, 1);   // 콘솔 커서 숨기기
+   menu_display();      // 메뉴 화면 출력
+    while (1) {
+      key = _getch();      // 문자 즉시 저장
+      switch (key) {
+      case 13:      // Enter키 == 13      
+         run(x, y);      // x, y좌표의 위치에 따라 동작이 바뀜.
+         
+             case 72:      // ↑ == 72 
+         move(0, -3);
+         break;
+   case 75:        // ← == 75
+         move(-20, 0);
+         break;
+case 77:        // → == 77
+         move(20, 0);
+         break;
+ case 80:      // ↓ == 80
+         move(0, 3);
+         break;
+           case 27:      // ESC키 == 27
+         gotoxy(5, 20);
+         exit(0);   // 정상 종료
+         break;
+      default:
+         break;
+      }
+   }
+
+   return 0;
+}
