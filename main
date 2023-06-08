@@ -523,6 +523,13 @@ void prediction(DATA list_game[]) {
     //시작 화면 돌아가기
         int next;
         printf("\n");
+        printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+        next = _getch();
+        if (next == 13) {
+            Sleep(1000);
+            system("cls");
+            
+        }
         
 }
 
