@@ -157,8 +157,13 @@ void free_Teaminfo(INFO** list_team) {
 }
 
 int main() {
-	int i;
 	INFO** list_team;
+	
+	list_team = read_Teaminfo("k리그_팀정보.csv");
+        if (list_team == NULL) {
+            return -1;
+        }
+	
 	
 	show_allteaminfo(list_team);
 
