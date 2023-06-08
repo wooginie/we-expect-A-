@@ -23,3 +23,23 @@ int main()
 	prediction(list_game);
 	return 0;
 }
+
+
+
+void matchData(char* dataName, DATA list_game[]) {
+	//구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.	
+	FILE* fp = fopen(dataName, "r"); //file pointer
+	if (fp == NULL) {
+		printf("파일 읽기 실패!");
+		return;
+	}
+	
+	//파일을 쪼개고, 구조체에 저장한다.
+	char line[512];
+	int i = 0;
+	while (fgets(line, sizeof(line), fp)) {
+		sscanf(line, "%[^,],%d,%d,%d,", list_game[i].opName, &list_game[i].vic, &list_game[i].tie, &list_game[i].lose);
+		i++;
+	}
+	fclose(fp);
+}
