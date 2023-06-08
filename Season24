@@ -65,8 +65,10 @@ void bring_allteaminfo1(INFO** teams) {
          bring_teaminfo1(teams[i]);
      }
  }
-nt main() {
-     int i;
+
+void all_main(){
+ int i;
+
      INFO** list_team;
 
      FILE* fp = fopen(".csv", "r");
@@ -118,3 +120,7 @@ nt main() {
 
      return 0;
  }
+ }
+int main() {
+     all_main();
+     }
