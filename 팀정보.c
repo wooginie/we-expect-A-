@@ -41,9 +41,11 @@ void show_teaminfo(INFO* team) {
 }
 
 void show_allteaminfo(INFO** teams) {
-	printf("모든 팀 보기 \n");
+	printf("<<<<<<<<<< K리그1 모든 팀 보기 >>>>>>>>>> \n");
+	printf("\n");
         for (int i = 0; i < K_leagueTeam; i++) {
             show_teaminfo(teams[i]);
+	    printf("\n");
         }
 }
 
