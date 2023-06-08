@@ -22,22 +22,36 @@ typedef struct teamInformation {
 }INFO;
 
 void show_teaminfo(INFO* team) {
+	printf("==================================================================\n");
 	printf("\n");
 	printf("팀 이름: %s \n", team->team_name);
-	printf("유니폼: %s \n", team->team_uniform);
-	printf("저번시즌 순위: %s \n", team->last_ranking);
-	printf("엠블럼: %s \n", team->team_emblem);
-	printf("홈 구장: %s \n", team->team_stadium);
-        printf("마스코트: %s \n", team->team_mascot);
-        printf("감독: %s \n", team->team_coach);
-	printf("주장: %s \n", team->team_captain);
-        printf("기록: %s \n", team->team_history);
-  	printf("공격수: %s \n", team->team_fw);
-        printf("미드필더: %s \n", team->team_mf);
-	printf("수비수: %s \n", team->team_df);
-        printf("골키퍼: %s \n", team->team_gk);
-	printf("응원가: %s \n", team->team_song);
 	printf("\n");
+	printf("유니폼: %s \n", team->team_uniform);
+	printf("\n");
+	printf("저번시즌 순위: %s \n", team->last_ranking);
+	printf("\n");
+	printf("엠블럼: %s \n", team->team_emblem);
+	printf("\n");
+	printf("홈 구장: %s \n", team->team_stadium);
+	printf("\n");
+        printf("마스코트: %s \n", team->team_mascot);
+	printf("\n");
+        printf("감독: %s \n", team->team_coach);
+	printf("\n");
+	printf("주장: %s \n", team->team_captain);
+	printf("\n");
+        printf("기록: %s \n", team->team_history);
+	printf("\n");
+  	printf("공격수: %s \n", team->team_fw);
+	printf("\n");
+        printf("미드필더: %s \n", team->team_mf);
+	printf("\n");
+	printf("수비수: %s \n", team->team_df);
+	printf("\n");
+        printf("골키퍼: %s \n", team->team_gk);
+	printf("\n");
+	printf("응원가: %s \n", team->team_song);
+	printf("==================================================================\n");
 }
 
 void show_allteaminfo(INFO** teams) {
