@@ -65,7 +65,7 @@ void print_talk();
 void bring_teaminfo1(NEXT* team);
 void bring_allteaminfo1(NEXT** teams);
 void print_mains();
-
+//다같이
 void Cursor(bool flag, int size);
 void menu_display();
 void move(int m, int n);
@@ -237,6 +237,7 @@ void choose_team1(NEXT** teams) {
             printf("%d.%s \n", i + 1, teams[i]->team_name1);
         }
         printf("\n");
+        printf("==================================================================\n\n");
         printf("원하는 팀의 번호를 입력하세요: ");
         scanf("%d", &n);
         printf("\n");
@@ -316,7 +317,7 @@ void print_mains() {
     //시작 화면 돌아가기
     int next;
     printf("\n");
-    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    printf("다른 팀 보기 (Enter) / 종료 (Esc): ");
     next = _getch();
     if (next == 13) {
         Sleep(1000);
@@ -444,7 +445,7 @@ void prediction(DATA list_game[]) {
     system("cls");
     // 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
     int bet, opponent;
-    printf("==============================================================\n");
+    printf("============================================================\n");
     printf("\t\t\t1. 강원\n");
     printf("\t\t\t2. 광주\n");
     printf("\t\t\t3. 김천상무\n");
@@ -458,7 +459,7 @@ void prediction(DATA list_game[]) {
     printf("\t\t\t11. 전북\n");
     printf("\t\t\t12. 제주\n");
     printf("\t\t\t13. 포항\n");
-    printf("==============================================================\n\n");
+    printf("===========================================================\n\n");
     printf("배팅하고 싶은 팀의 번호를 입력하세요: "); //csv 파일 선택	
     scanf("%d", &bet);
     printf("-\n");
@@ -521,24 +522,24 @@ void prediction(DATA list_game[]) {
     double tie = list_game[opponent - 1].tie;
     double lose = list_game[opponent - 1].lose;
     double games = vic + tie + lose;
-    printf("\n==============================================================\n\n");
+    printf("\n========================================================\n\n");
     printf("\t\t\t%s\n\n\t\t\t VS\n\n \t\t\t%s\n\n", list_game[bet - 1].opName, list_game[opponent - 1].opName);
-    printf("\n==============================================================\n\n");
+    printf("\n========================================================\n\n");
     printf("확률을 계산 중입니다. 잠시만 기다려주세요......");
     Sleep(5000);
     system("cls");
-    printf("\n==============================================================\n\n");
+    printf("\n========================================================\n\n");
     printf("Betting: %s\n", list_game[bet - 1].opName);
     printf("\t\t%s VS %s\n\n", list_game[bet - 1].opName, list_game[opponent - 1].opName);
     printf("\t\t승리 확률: %.2lf%%\n", vic / games * 100);
     printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
     printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
-    printf("\n==============================================================\n\n");
+    printf("\n========================================================\n\n");
 
     //시작 화면 돌아가기
     int next;
     printf("\n");
-    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    printf("다시 한 번 승무패 예측 (Enter) / 종료 (Esc): ");
     next = _getch();
     if (next == 13) {
         Sleep(1000);
@@ -584,6 +585,7 @@ void show_teaminfo(INFO* team) {
 }
 
 void select_team(INFO** teams) {
+    system("cls");
     int num, i;
     char next;
 
@@ -714,6 +716,7 @@ void free_Teaminfo(INFO** list_team) {
 }
 
 void play_quiz(Quiz* a) {
+    system("cls");
     int i, j, n;
     int randomIndex;
     int arr[quizNum];
