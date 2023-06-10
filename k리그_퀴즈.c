@@ -81,6 +81,15 @@ void play_quiz(Quiz* a) {
     printf("%d문제 중 %d문제를 맞히고 %d문제를 틀렸습니다. \n", quizNum, num, quizNum - num);
     printf("\n");
     printf("==================================================================\n");
+    Sleep(2000);
+    system("cls");
+    printf("==================================================================\n");
+    printf("\n");
+    printf("                     <<메인 화면으로 나갑니다>>                 \n");
+    printf("\n");
+    printf("==================================================================\n");
+    Sleep(2000);
+    system("cls");
 }
 
 void read_quizFile(FILE* file, Quiz* list_quiz, int totalQuizNum) {
