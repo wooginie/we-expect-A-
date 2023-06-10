@@ -10,9 +10,9 @@ typedef struct teamInformation {
     char team_name1[100];
     char team_ranking1[100];
     char team_reason1[1024];
-} INFO;
+} NEXT;
 
-void bring_teaminfo1(INFO* team) {
+void bring_teaminfo1(NEXT* team) {
     printf("==================================================================\n");
     printf("\n");
     printf("팀 이름: %s \n", team->team_name1);
@@ -22,14 +22,14 @@ void bring_teaminfo1(INFO* team) {
     printf("==================================================================\n");
 }
 
-void bring_allteaminfo1(INFO** teams) {
+void bring_allteaminfo1(NEXT** teams) {
     printf("모든 팀 보기 \n");
     for (int i = 0; i < K_league1; i++) {
         bring_teaminfo1(teams[i]);
     }
 }
 
-void choose_team1(INFO** teams) {
+void choose_team1(NEXT** teams) {
     int n, i;
 
     while (1) {
@@ -64,16 +64,16 @@ void choose_team1(INFO** teams) {
 void print_main(){
 
     int i;
-    INFO** list_team;
+    NEXT** list_team;
 
-    FILE* fp = fopen("게이.csv", "r");
+    FILE* fp = fopen("NEXT.csv", "r");
 
     if (fp == NULL) {
         printf("file failed");
         return -1;
     }
 
-    list_team = (INFO**)malloc(K_league1 * sizeof(INFO*));
+    list_team = (NEXT**)malloc(K_league1 * sizeof(NEXT*));
     if (list_team == NULL) {
         printf("memory failed");
         return -1;
@@ -82,7 +82,7 @@ void print_main(){
     char line[5000];
     for (i = 0; i < K_league1; i++) {
         fgets(line, 5000, fp);
-        list_team[i] = (INFO*)malloc(sizeof(INFO));
+        list_team[i] = (NEXT*)malloc(sizeof(NEXT));
 
         char* token = strtok(line, ",");
         int field = 0;

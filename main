@@ -1,133 +1,805 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include<windows.h>
-#define teamCount 13 //K리그에 참여하는 팀의 수 (= csv 파일의 행의 수)
+#include <string.h>
+#include <time.h>
+#include <Windows.h>
+#include <conio.h>
+#include <stdbool.h>
+#include <mmsystem.h>
 
+int x, y;
+
+#define K_league1 15 //우진
+#define teamCount 13 //경근 K리그에 참여하는 팀의 수 (= csv 파일의 행의 수)
+#define K_leagueTeam 13 //승환
+#define totalQuiz 10
+#define quizNum 5
+
+//우진
+typedef struct teamInfo {
+    char team_name1[100];
+    char team_ranking1[100];
+    char team_reason1[1024];
+} NEXT;
+//경근
 typedef struct gameData {
-	char opName[32]; //opponent name
-	int vic;
-	int tie;
-	int lose;
+    char opName[32]; //opponent name
+    int vic;
+    int tie;
+    int lose;
 } DATA;
+//승환
+typedef struct teamInformation {
+    char team_name[100];
+    char team_uniform[100];
+    char last_ranking[100];
+    char team_emblem[1000];
+    char team_stadium[100];
+    char team_mascot[100];
+    char team_coach[100];
+    char team_captain[100];
+    char team_history[1000];
+    char team_fw[300];
+    char team_mf[300];
+    char team_df[300];
+    char team_gk[300];
+    char team_song[1000];
+}INFO;
 
+INFO** list_team;
+
+typedef struct {
+    char question[300];
+    char choice[300];
+    int answer;
+    char explanation[500];
+} Quiz;
+
+Quiz* list_quiz;
+FILE* p_quiz;
+
+//우진
+void print_main();
+void print_talk();
+void bring_teaminfo1(NEXT* team);
+void bring_allteaminfo1(NEXT** teams);
+void print_mains();
+
+void Cursor(bool flag, int size);
+void menu_display();
+void move(int m, int n);
+void run(int x, int y);
+void gotoxy(int x, int y);
+//경근
 void matchData(char* dataName, DATA list_game[]);
 void prediction(DATA list_game[]);
+//승환
+void show_teaminfo(INFO* team);
+void select_team(INFO** teams);
+INFO** read_Teaminfo(const char* filename);
+void free_Teaminfo(INFO** list_team);
+void play_quiz(Quiz* a);
+void read_quizFile(FILE* file, Quiz* list_quiz, int totalQuizNum);
+
 
 
 
 int main()
 {
-	DATA list_game[teamCount];
-	prediction(list_game);
-	return 0;
+    list_team = read_Teaminfo("k리그_팀정보.csv");
+    if (list_team == NULL) {
+        return -1;
+    }
+    srand(time(NULL));
+
+    p_quiz = fopen("k리그_퀴즈.csv", "r");
+
+    if (p_quiz == NULL) {
+        printf("파일 읽기 실패!");
+        return -1;
+    }
+
+    list_quiz = (Quiz*)malloc(totalQuiz * sizeof(Quiz));
+
+    read_quizFile(p_quiz, list_quiz, totalQuiz);
+
+    
+
+    print_main();
+    system("cls");
+    print_talk();
+    char key;      // case 분기를 위한 변수
+    x = 2, y = 16;   // 메뉴 출력시 "▶"가 있을 위치 설정
+
+    Cursor(false, 1);   // 콘솔 커서 숨기기
+    menu_display();      // 메뉴 화면 출력
+
+    while (1) {
+        key = _getch();      // 문자 즉시 저장
+        switch (key) {
+        case 13:      // Enter키 == 13      
+            run(x, y);      // x, y좌표의 위치에 따라 동작이 바뀜.
+            break;
+        case 72:      // ↑ == 72 
+            move(0, -3);
+            break;
+        case 75:        // ← == 75
+            move(-20, 0);
+            break;
+        case 77:        // → == 77
+            move(20, 0);
+            break;
+        case 80:      // ↓ == 80
+            move(0, 3);
+            break;
+        case 27:      // ESC키 == 27
+            gotoxy(5, 20);
+            exit(0);   // 정상 종료
+            break;
+        default:
+            break;
+        }
+    }
+
+    free_Teaminfo(list_team);
+
+    fclose(p_quiz);
+
+    free(list_quiz);
+
+    return 0;
 }
 
 
 
+
+
+void print_main() {
+
+    printf("\n");
+    printf("\n");
+    printf("\x1b[31m                                K-LEAGUE GPT\x1b[0m\n");
+    printf("===========================================================================\n");
+    printf("\x1b[31m|                                    |                                     | \x1b[0m\n");
+    printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
+    printf("\x1b[31m|====                              = = =                               ====| \x1b[0m\n");
+    printf("\x1b[31m|   |                            =   |   =                             |   | \x1b[0m\n");
+    printf("\x1b[31m|   |                           =    =    =                            |   | \x1b[0m\n");
+    printf("\x1b[31m|   |                            =   |   =                             |   |   \x1b[0m\n");
+    printf("\x1b[31m|====                              = = =                               ====|\x1b[0m\n");
+    printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
+    printf("\x1b[31m|                                    |                                     |\x1b[0m\n");
+    printf("===========================================================================\n");
+    printf("\x1b[31m                                 환영합니다. \x1b[0m\n");
+    system("pause");
+}
+
+void print_talk()
+{
+    int i = 0;
+
+    char talk[6][500] = { {" 안녕하세요 K-LEAUGE GPT입니다.\n"} ,
+       {" K-LEAUGE GPT는 여러분들께 축구에대한 여러가지 정보를 제공하고있습니다.\n"},
+       {" 첫째, 팀별로 승리 할 확률을 알려주는 서비스.\n"},
+       {" 둘째, 해당 팀에 대한 구체적인 정보를 알려주는 서비스.\n"},
+       {" 셋째, 팀별로 다음시즌 순위를 예측해주는 서비스.\n"},
+       {" 마지막으로 심심풀이 미니게임이 있습니다.\n"}
+    };
+    while (i <= 5) {
+        printf("\n\n");
+        printf("\x1b[31m                        K-LEAGUE GPT\x1b[0m\n");
+        printf("        $$$$$$$                                  $$$$$$$\n");
+        printf("       $$ $$$$$$                                $$$$$$ $$ $\n");
+        printf("       $$$$$$$$$                                $$$$$$$$$  $\n");
+        printf("$      $$$                                            $$$          $\n");
+        printf("$$     $$$$$$$                                    $$$$$$$         $$ \n");
+        printf("$$$   $$$$$                                         $$$$$$       $$$\n");
+        printf(" $$  $$$$$$$$$$                                  $$$$$$$$$$$$$$  $$\n");
+        printf(" $$$$$$$$$$$          @@@@                           $$$$$$$$$$$$$$\n");
+        printf("  $$$$$$$$$$         @@@@@@                            $$$$$$$$$$$          \n");
+        printf("    $$$  $$$          @@@@                               $$$  $$$\n");
+        printf("===========================================================================\n");
+        printf("\n");
+        printf("%s", talk[i]);
+        printf("\n");
+        printf("===========================================================================\n");
+        i++;
+        Sleep(2800);
+        system("cls");
+    }
+}
+
+void bring_teaminfo1(NEXT* team) {
+    printf("==================================================================\n");
+    printf("\n");
+    printf("팀 이름: %s \n", team->team_name1);
+    printf("다음시즌 예상 순위: %s \n", team->team_ranking1);
+    printf("이유: %s \n", team->team_reason1);
+    printf("\n");
+    printf("==================================================================\n");
+}
+
+void bring_allteaminfo1(NEXT** teams) {
+    printf("모든 팀 보기 \n");
+    for (int i = 0; i < K_league1; i++) {
+        bring_teaminfo1(teams[i]);
+    }
+}
+
+void choose_team1(NEXT** teams) {
+    int n, i;
+
+    while (1) {
+        printf("==================================================================\n");
+        printf("\n");
+        for (i = 0; i < K_league1; i++) {
+            printf("%d.%s \n", i + 1, teams[i]->team_name1);
+        }
+        printf("\n");
+        printf("원하는 팀의 번호를 입력하세요: ");
+        scanf("%d", &n);
+        printf("\n");
+        printf("==================================================================\n");
+        system("cls");
+
+        if (n >= 1 && n <= K_league1) {
+            bring_teaminfo1(teams[n - 1]);
+            break;
+        }
+        else {
+            printf("==================================================================\n");
+            printf("\n");
+            printf("번호를 다시 입력하세요(1번~%d번) \n", K_league1);
+            printf("\n");
+            printf("==================================================================\n");
+
+        }
+
+    }
+
+}
+
+void print_mains() {
+    system("cls");
+    int i;
+   NEXT** list_team;
+
+    FILE* fp = fopen("게이.csv", "r");
+
+    if (fp == NULL) {
+        printf("file failed");
+        return;
+    }
+
+    list_team = (NEXT**)malloc(K_league1 * sizeof(NEXT*));
+    if (list_team == NULL) {
+        printf("memory failed");
+        return;
+    }
+
+    char line[5000];
+    for (i = 0; i < K_league1; i++) {
+        fgets(line, 5000, fp);
+        list_team[i] = (NEXT*)malloc(sizeof(NEXT));
+
+        char* token = strtok(line, ",");
+        int field = 0;
+        while (token != NULL && field < 14) {
+            switch (field) {
+            case 0:
+                strcpy(list_team[i]->team_name1, token);
+                break;
+            case 1:
+                strcpy(list_team[i]->team_ranking1, token);
+                break;
+            case 2:
+                strcpy(list_team[i]->team_reason1, token);
+                break;
+            }
+
+            token = strtok(NULL, ",");
+            field++;
+        }        
+    }
+
+    //show_allteaminfo(list_team);
+    choose_team1(list_team);
+
+    fclose(fp);
+
+    for (i = 0; i < K_league1; i++) {
+        free(list_team[i]);
+    }
+    free(list_team);
+
+    //시작 화면 돌아가기
+    int next;
+    printf("\n");
+    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    next = _getch();
+    if (next == 13) {
+        Sleep(1000);
+        system("cls");
+        print_mains();
+    }
+    else if (next == 27) {
+        system("cls");
+    }
+
+    return;
+}
+// 콘솔 커서를 숨김 (화살표가 커서의 역할을 함)
+void Cursor(bool flag, int size)
+{
+    CONSOLE_CURSOR_INFO cursorInfo;
+    cursorInfo.dwSize = size;
+    cursorInfo.bVisible = flag;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+}
+
+// 메뉴 표시
+void menu_display()
+{
+    system("cls");      // 화면 청소
+    gotoxy(5, 2);    puts("K리그 Gpt");
+    gotoxy(5, 5);    puts("프로그램 사용법 ☞   이동: 방향키");
+    gotoxy(5, 7);    puts("         선택: Enter");
+    gotoxy(5, 9);    puts("         종료: Esc");
+
+    gotoxy(5, 16);   puts("1. 승무패   예측");
+    gotoxy(25, 16);   puts("2. 팀정보   보기");
+    gotoxy(45, 16);   puts("3. 다음시즌 예측");
+    gotoxy(65, 16);   puts("4. 미니 게임");
+
+    gotoxy(x, y);      // 모두 출력한 후, 원래의 커서 위치로 이동
+    printf("▶");
+
+}
+
+// 키보드 입력에 따른 커서 이동
+void move(int m, int n)
+{
+    gotoxy(x, y);
+    printf("  ");      // 전에 있던 ▶는 공백으로 덮어쓴다.
+    gotoxy(x = x + m, y = y + n);
+
+    // 커서가 지정할 좌표 밖으로 나가지 않도록
+    if (y > 16) y = 16;
+    if (y < 16) y = 16;
+    if (y == 16 && x > 63) x = 2;
+    if (y == 16 && x < 2) x = 63;
+
+    gotoxy(x, y);
+    printf("▶");      // 해당 커서의 위치로 이동 후 ▶를 출력한다.
+}
+
+// 커서의 x, y좌표를 받아서 해당하는 함수 실행
+void run(int x, int y)
+{
+    DATA list_game[teamCount];
+
+    if (x == 2 && y == 16) // 1. 예측
+    {
+        menu_display();
+        gotoxy(1, 19);
+		prediction(list_game);
+        menu_display();
+
+    }
+
+    else if (x == 22 && y == 16) // 2. 정보
+    {
+        menu_display();
+        gotoxy(1, 19);
+        select_team(list_team);
+        menu_display();
+    }
+
+    else if (x == 42 && y == 16) // 3. 다음 시즌
+    {
+        menu_display();
+        gotoxy(1, 19);
+        print_mains();
+        menu_display();
+    }
+
+    else if (x == 62 && y == 16) // 4. 미니 퀴즈
+    {
+
+        menu_display();
+        gotoxy(1, 19);
+        play_quiz(list_quiz);
+
+    }
+
+}
+
+// (x,y)좌표로 커서를 이동
+void gotoxy(int x, int y)
+{
+    COORD pos = { x - 1,y - 1 };   // 원점은 (0,0)
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
+
 void matchData(char* dataName, DATA list_game[]) {
-	//구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.	
-	FILE* fp = fopen(dataName, "r"); //file pointer
-	if (fp == NULL) {
-		printf("파일 읽기 실패!");
-		return;
-	}
-	
-	//파일을 쪼개고, 구조체에 저장한다.
-	char line[512];
-	int i = 0;
-	while (fgets(line, sizeof(line), fp)) {
-		sscanf(line, "%[^,],%d,%d,%d,", list_game[i].opName, &list_game[i].vic, &list_game[i].tie, &list_game[i].lose);
-		i++;
-	}
-	fclose(fp);
+    //구조체에 데이터를 저장하기 위해, 경기 전적 데이터 파일(.csv)를 불러온다.	
+    FILE* fp = fopen(dataName, "r"); //file pointer
+    if (fp == NULL) {
+        printf("파일 읽기 실패!");
+        return;
+    }
+
+    //파일을 쪼개고, 구조체에 저장한다.
+    char line[512];
+    int i = 0;
+    while (fgets(line, sizeof(line), fp)) {
+        sscanf(line, "%[^,],%d,%d,%d,", list_game[i].opName, &list_game[i].vic, &list_game[i].tie, &list_game[i].lose);
+        i++;
+    }
+    fclose(fp);
 }
 
 void prediction(DATA list_game[]) {
-	// 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
-	int bet, opponent;
-	printf("==============================================================\n");
-	printf("\t\t\t1. 강원\n");
-	printf("\t\t\t2. 광주\n");
-	printf("\t\t\t3. 김천상무\n");
-	printf("\t\t\t4. 대구\n");
-	printf("\t\t\t5. 서울\n");
-	printf("\t\t\t6. 성남\n");
-	printf("\t\t\t7. 수원\n");
-	printf("\t\t\t8. 수원fc\n");
-	printf("\t\t\t9. 울산\n");
-	printf("\t\t\t10. 인천\n");
-	printf("\t\t\t11. 전북\n");
-	printf("\t\t\t12. 제주\n");
-	printf("\t\t\t13. 포항\n");
-	printf("==============================================================\n\n");
-	printf("배팅하고 싶은 팀의 번호를 입력하세요: "); //csv 파일 선택	
-	scanf("%d", &bet);
-	printf("-\n");
-	printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
-	scanf("%d", &opponent);
-	system("cls");
+    system("cls");
+    // 사용자에게 배팅하고 싶은 팀의 정보를 입력 받는다. (bet:배팅할 팀, opponent: 상대 팀)
+    int bet, opponent;
+    printf("==============================================================\n");
+    printf("\t\t\t1. 강원\n");
+    printf("\t\t\t2. 광주\n");
+    printf("\t\t\t3. 김천상무\n");
+    printf("\t\t\t4. 대구\n");
+    printf("\t\t\t5. 서울\n");
+    printf("\t\t\t6. 성남\n");
+    printf("\t\t\t7. 수원\n");
+    printf("\t\t\t8. 수원fc\n");
+    printf("\t\t\t9. 울산\n");
+    printf("\t\t\t10. 인천\n");
+    printf("\t\t\t11. 전북\n");
+    printf("\t\t\t12. 제주\n");
+    printf("\t\t\t13. 포항\n");
+    printf("==============================================================\n\n");
+    printf("배팅하고 싶은 팀의 번호를 입력하세요: "); //csv 파일 선택	
+    scanf("%d", &bet);
+    printf("-\n");
+    printf("상대하는 팀의 번호를 입력하세요: "); //구조체 멤버 선택
+    scanf("%d", &opponent);
+    system("cls");
 
-	//switch case 문으로 배팅하고 싶은 팀의 경기 전적 데이터 파일(.csv) 선택
-	char dataFile[20];
-	switch (bet) {
-	case 1:
-		strcpy(dataFile, "강원.csv");
-		break;
-	case 2:
-		strcpy(dataFile, "광주.csv");
-		break;
-	case 3:
-		strcpy(dataFile, "김천상무.csv");
-		break;
-	case 4:
-		strcpy(dataFile, "대구.csv");
-		break;
-	case 5:
-		strcpy(dataFile, "서울.csv");
-		break;
-	case 6:
-		strcpy(dataFile, "성남.csv");
-		break;
-	case 7:
-		strcpy(dataFile, "수원.csv");
-		break;
-	case 8:
-		strcpy(dataFile, "수원FC.csv");
-		break;
-	case 9:
-		strcpy(dataFile, "울산.csv");
-		break;
-	case 10:
-		strcpy(dataFile, "인천.csv");
-		break;
-	case 11:
-		strcpy(dataFile, "전북.csv");
-		break;
-	case 12:
-		strcpy(dataFile, "제주.csv");
-		break;
-	case 13:
-		strcpy(dataFile, "포항.csv");
-		break;
-	default:
-		printf("잘못된 입력입니다.\n");
-		return;
-	}
+    //switch case 문으로 배팅하고 싶은 팀의 경기 전적 데이터 파일(.csv) 선택
+    char dataFile[20];
+    switch (bet) {
+    case 1:
+        strcpy(dataFile, "강원.csv");
+        break;
+    case 2:
+        strcpy(dataFile, "광주.csv");
+        break;
+    case 3:
+        strcpy(dataFile, "김천상무.csv");
+        break;
+    case 4:
+        strcpy(dataFile, "대구.csv");
+        break;
+    case 5:
+        strcpy(dataFile, "서울.csv");
+        break;
+    case 6:
+        strcpy(dataFile, "성남.csv");
+        break;
+    case 7:
+        strcpy(dataFile, "수원.csv");
+        break;
+    case 8:
+        strcpy(dataFile, "수원FC.csv");
+        break;
+    case 9:
+        strcpy(dataFile, "울산.csv");
+        break;
+    case 10:
+        strcpy(dataFile, "인천.csv");
+        break;
+    case 11:
+        strcpy(dataFile, "전북.csv");
+        break;
+    case 12:
+        strcpy(dataFile, "제주.csv");
+        break;
+    case 13:
+        strcpy(dataFile, "포항.csv");
+        break;
+    default:
+        printf("잘못된 입력입니다.\n");
+        return;
+    }
 
-	// 데이터 파일에서 경기 전적 가져오기
-	matchData(dataFile, list_game);
+    // 데이터 파일에서 경기 전적 가져오기
+    matchData(dataFile, list_game);
 
-	// 경기 전적을 기반으로 승무패 확률 계산하고 출력하기
-	double vic = list_game[opponent-1].vic;
-	double tie = list_game[opponent-1].tie;
-	double lose = list_game[opponent-1].lose;
-	double games = vic + tie + lose;
-	printf("\n==============================================================\n\n");
-	printf("\t\t%s  VS    %s", list_game[bet - 1].opName, list_game[opponent - 1].opName);
-	printf("\t\t승리 확률: %.2lf%%\n", vic / games * 100);
-	printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
-	printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
-	printf("\n==============================================================\n\n");
+    // 경기 전적을 기반으로 승무패 확률 계산하고 출력하기
+    double vic = list_game[opponent - 1].vic;
+    double tie = list_game[opponent - 1].tie;
+    double lose = list_game[opponent - 1].lose;
+    double games = vic + tie + lose;
+    printf("\n==============================================================\n\n");
+    printf("\t\t\t%s\n\n\t\t\t VS\n\n \t\t\t%s\n\n", list_game[bet - 1].opName, list_game[opponent - 1].opName);
+    printf("\n==============================================================\n\n");
+    printf("확률을 계산 중입니다. 잠시만 기다려주세요......");
+    Sleep(5000);
+    system("cls");
+    printf("\n==============================================================\n\n");
+    printf("Betting: %s\n", list_game[bet - 1].opName);
+    printf("\t\t%s VS %s\n\n", list_game[bet - 1].opName, list_game[opponent - 1].opName);
+    printf("\t\t승리 확률: %.2lf%%\n", vic / games * 100);
+    printf("\t\t무승부 확률: %.2lf%%\n", tie / games * 100);
+    printf("\t\t패배 확률: %.2lf%%\n", lose / games * 100);
+    printf("\n==============================================================\n\n");
+
+    //시작 화면 돌아가기
+    int next;
+    printf("\n");
+    printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+    next = _getch();
+    if (next == 13) {
+        Sleep(1000);
+        system("cls");
+        prediction(list_game);
+    }
+    else if (next == 27) {
+        system("cls");
+    }
+}
+
+void show_teaminfo(INFO* team) {
+    printf("==================================================================\n");
+    printf("\n");
+    printf("<<팀 이름>>: %s \n", team->team_name);
+    printf("\n");
+    printf("<<유니폼>>: %s \n", team->team_uniform);
+    printf("\n");
+    printf("<<저번시즌 순위>>: %s \n", team->last_ranking);
+    printf("\n");
+    printf("<<엠블럼>>: %s \n", team->team_emblem);
+    printf("\n");
+    printf("<<홈 구장>>: %s \n", team->team_stadium);
+    printf("\n");
+    printf("<<마스코트>>: %s \n", team->team_mascot);
+    printf("\n");
+    printf("<<감독>>: %s \n", team->team_coach);
+    printf("\n");
+    printf("<<주장>>: %s \n", team->team_captain);
+    printf("\n");
+    printf("<<기록>>: %s \n", team->team_history);
+    printf("\n");
+    printf("<<공격수>>: %s \n", team->team_fw);
+    printf("\n");
+    printf("<<미드필더>>: %s \n", team->team_mf);
+    printf("\n");
+    printf("<<수비수>>: %s \n", team->team_df);
+    printf("\n");
+    printf("<<골키퍼>>: %s \n", team->team_gk);
+    printf("\n");
+    printf("<<응원가>>: %s \n", team->team_song);
+    printf("==================================================================\n");
+}
+
+void select_team(INFO** teams) {
+    int num, i;
+    char next;
+
+    while (1) {
+        Sleep(2000);
+        printf("==================================================================\n");
+        
+        printf("\n");
+        for (i = 0; i < K_leagueTeam; i++) {
+            printf("%d.%s \n", i + 1, teams[i]->team_name);
+        }
+        printf("\n");
+        printf("==================================================================\n");
+        printf("\n");
+        printf("원하는 팀의 번호를 입력하세요: ");
+        scanf("%d", &num);
+        system("cls");
+
+        if (num >= 1 && num <= K_leagueTeam) {
+            Sleep(1000);
+            show_teaminfo(teams[num - 1]);
+            printf("\n");
+            printf("다른 팀 정보 보기 (Enter) / 종료 (Esc): ");
+            next = _getch();
+            if (next == 13) {
+                Sleep(1000);
+                system("cls");
+            }
+            else if (next == 27) {
+                system("cls");
+                break;
+            }
+        }
+        else {
+            printf("==================================================================\n");
+            printf("\n");
+            printf("번호를 다시 입력하세요(1번~%d번) \n", K_leagueTeam);
+            printf("\n");
+            printf("==================================================================\n");
+        }
+
+    }
+
+}
+
+INFO** read_Teaminfo(const char* filename) {
+    INFO** list_team = (INFO**)malloc(K_leagueTeam * sizeof(INFO*));
+    if (list_team == NULL) {
+        printf("메모리 할당 실패!");
+        return NULL;
+    }
+
+    FILE* fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("파일 읽기 실패!");
+        free(list_team);
+        return NULL;
+    }
+
+    char line[5000];
+    for (int i = 0; i < K_leagueTeam; i++) {
+        fgets(line, 5000, fp);
+        list_team[i] = (INFO*)malloc(sizeof(INFO));
+
+        char* token = strtok(line, ",");
+        int field = 0;
+        while (token != NULL && field < 14) {
+            switch (field) {
+            case 0:
+                strcpy(list_team[i]->team_name, token);
+                break;
+            case 1:
+                strcpy(list_team[i]->team_uniform, token);
+                break;
+            case 2:
+                strcpy(list_team[i]->last_ranking, token);
+                break;
+            case 3:
+                strcpy(list_team[i]->team_emblem, token);
+                break;
+            case 4:
+                strcpy(list_team[i]->team_stadium, token);
+                break;
+            case 5:
+                strcpy(list_team[i]->team_mascot, token);
+                break;
+            case 6:
+                strcpy(list_team[i]->team_coach, token);
+                break;
+            case 7:
+                strcpy(list_team[i]->team_captain, token);
+                break;
+            case 8:
+                strcpy(list_team[i]->team_history, token);
+                break;
+            case 9:
+                strcpy(list_team[i]->team_fw, token);
+                break;
+            case 10:
+                strcpy(list_team[i]->team_mf, token);
+                break;
+            case 11:
+                strcpy(list_team[i]->team_df, token);
+                break;
+            case 12:
+                strcpy(list_team[i]->team_gk, token);
+                break;
+            case 13:
+                strcpy(list_team[i]->team_song, token);
+                break;
+            }
+
+            token = strtok(NULL, ",");
+            field++;
+        }
+    }
+
+    fclose(fp);
+
+    return list_team;
+}
+
+void free_Teaminfo(INFO** list_team) {
+    for (int i = 0; i < K_leagueTeam; i++) {
+        free(list_team[i]);
+    }
+    free(list_team);
+}
+
+void play_quiz(Quiz* a) {
+    int i, j, n;
+    int randomIndex;
+    int arr[quizNum];
+    int score = 0;
+    int num = 0;
+
+    for (i = 0; i < quizNum; i++) {
+        arr[i] = rand() % totalQuiz;
+        for (j = 0; j < i; j++) {
+            if (arr[i] == arr[j]) {
+                i--;
+                break;
+            }
+        }
+    }
+    printf("==================================================================\n");
+    printf("\n");
+    printf("                  <<잠시후 문제가 시작됩니다>>           \n");
+    printf("\n");
+    printf("==================================================================\n");
+    Sleep(2000);
+    system("cls");
+
+    for (i = 0; i < quizNum; i++) {
+        randomIndex = arr[i];
+        printf("==================================================================\n");
+        printf("문제 %d) %s \n", i + 1, a[randomIndex].question);
+        printf("\n");
+        printf("     %s \n", a[randomIndex].choice);
+        printf("==================================================================\n");
+        printf("답: ");
+        scanf("%d", &n);
+        while (1) {
+            if (n == a[randomIndex].answer) {
+                Sleep(1000);
+                printf("==================================================================\n");
+                printf("정답입니다! \n");
+                score += 20;
+                num++;
+                break;
+            }
+            else if (n != a[randomIndex].answer && n < 5 && n > 0) {
+                Sleep(1000);
+                printf("==================================================================\n");
+                printf("오답입니다! \n");
+                printf("\n");
+                printf("%s \n", a[randomIndex].explanation);
+                break;
+            }
+            else if (n == 0 || n > 4) {
+                printf("\n");
+                printf("숫자를 제대로 입력해주세요! \n");
+                printf("답: ");
+                scanf("%d", &n);
+            }
+        }
+        Sleep(3000);
+        system("cls");
+    }
+    printf("==================================================================\n");
+    printf("\n");
+    printf("당신의 점수는 %d점입니다! \n", score);
+    printf("\n");
+    printf("%d문제 중 %d문제를 맞히고 %d문제를 틀렸습니다. \n", quizNum, num, quizNum - num);
+    printf("\n");
+    printf("==================================================================\n");
+}
+
+void read_quizFile(FILE* file, Quiz* list_quiz, int totalQuizNum) {
+    char line[1024];
+    char* a_quiz;
+    int i_quiz, b_quiz;
+
+    for (i_quiz = 0; i_quiz < totalQuizNum; i_quiz++) {
+        fgets(line, 1024, file);
+        a_quiz = strtok(line, ",");
+        while (a_quiz != NULL) {
+            strcpy(list_quiz[i_quiz].question, a_quiz);
+            a_quiz = strtok(NULL, ",");
+            strcpy(list_quiz[i_quiz].choice, a_quiz);
+            a_quiz = strtok(NULL, ",");
+            b_quiz = atoi(a_quiz);
+            list_quiz[i_quiz].answer = b_quiz;
+            a_quiz = strtok(NULL, ",");
+            strcpy(list_quiz[i_quiz].explanation, a_quiz);
+            a_quiz = strtok(NULL, ",");
+        }
+    }
 }
